@@ -1,15 +1,96 @@
 
+/* VS Code主题配色 */
+:root {
+    --vscode-blue: #007ACC;
+    --vscode-dark-blue: #005a9e;
+    --vscode-bg-dark: #1e1e1e;
+    --vscode-sidebar-dark: #252526;
+    --vscode-editor-dark: #1e1e1e;
+    --vscode-text-light: #cccccc;
+    --vscode-text-white: #ffffff;
+    --vscode-accent-orange: #ce9178;
+    --vscode-accent-green: #608b4e;
+    --vscode-accent-purple: #c586c0;
+}
 
+/* 首页标题样式 */
 #home_page h1 {
-    color: #4caf7d;
-}
-.dark #home_page h1{
-    color: white;
+    color: var(--vscode-blue);
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-weight: 600;
 }
 
+.dark #home_page h1 {
+    color: var(--vscode-text-white);
+}
+
+#home_page h3 {
+    color: var(--vscode-text-light);
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* 按钮样式 - VS Code风格 */
+.btn {
+    background-color: var(--vscode-blue) !important;
+    border: 1px solid var(--vscode-dark-blue) !important;
+    color: white !important;
+    font-family: 'Segoe UI', 'Roboto', sans-serif !important;
+    padding: 8px 16px !important;
+    border-radius: 2px !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.btn:hover {
+    background-color: var(--vscode-dark-blue) !important;
+}
+
+/* 代码块样式 */
+pre, code {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+}
+
+.dark pre {
+    background-color: var(--vscode-editor-dark) !important;
+    border: 1px solid #333 !important;
+}
+
+/* 侧边栏样式 */
+.dark .sidebar {
+    background-color: var(--vscode-sidebar-dark) !important;
+}
+
+/* 链接样式 */
+a {
+    color: var(--vscode-blue) !important;
+}
+
+.dark a {
+    color: #4fc3f7 !important;
+}
+
+a:hover {
+    color: var(--vscode-dark-blue) !important;
+}
+
+/* 响应式设计 */
 @media screen and (max-width: 900px) {
     #home_page h1 {
-        color: #eb4848;
+        color: var(--vscode-blue);
+        font-size: 2rem;
     }
+}
+
+/* 特殊元素样式 */
+.highlight {
+    background-color: var(--vscode-accent-orange) !important;
+    color: var(--vscode-bg-dark) !important;
+    padding: 2px 4px !important;
+    border-radius: 2px !important;
+}
+
+/* 导航栏样式 */
+.dark .navbar {
+    background-color: var(--vscode-bg-dark) !important;
+    border-bottom: 1px solid #333 !important;
 }
 

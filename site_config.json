@@ -1,14 +1,15 @@
 {
-    "site_name": "OpenEarable 2.0 技术文档",
-    "site_slogon": "智能可穿戴设备完整源码分析",
+    "site_name": "7h4Worker's Tech Docs",
+    "site_slogon": "代码阅读 · 技术笔记 · 项目分析",
     "site_root_url": "/lhfdoc.github.io/",
     "site_domain": "7h4worker.github.io",
     "site_protocol": "https",
     "config_template_dir": "config",
     "route": {
         "docs": {
-            "/guide/": "docs/guide",
-            "/modules/": "docs/modules"
+            "/openearable/": "docs/openearable",
+            "/projects/": "docs/projects",
+            "/notes/": "docs/notes"
         },
         "pages": {
             "/": "pages/index"
@@ -29,7 +30,7 @@
                 "dark": true,
                 "show_print_page": false,
                 "env":{
-                    "main_color": "#4caf7d"
+                    "main_color": "#007ACC"
                 }
             }
         },
@@ -54,8 +55,8 @@
                     "/static/js/custom.js"
                 ],
                 "env":{
-                    "main_color": "#4caf7d",
-                    "second_color": "#0a7d43"
+                    "main_color": "#007ACC",
+                    "second_color": "#005a9e"
                 }
             }
         }
