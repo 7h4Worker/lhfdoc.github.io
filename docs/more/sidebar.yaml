@@ -1,3 +1,38 @@
 items:
--   label: 简介
+  - label: 模块索引
     file: README.md
+    translate: false
+  - label: 核心功能模块
+    items:
+      - label: 🔋 电源管理模块
+        file: battery-module.md
+        translate: false
+      - label: 🎵 音频处理模块
+        file: audio-module.md
+        translate: false
+      - label: 📡 传感器管理模块
+        file: sensor-module.md
+        translate: false
+      - label: 📶 蓝牙通信模块
+        file: bluetooth-module.md
+        translate: false
+      - label: 💾 数据存储模块
+        file: storage-module.md
+        translate: false
+      - label: 🔧 硬件驱动模块
+        file: drivers-module.md
+        translate: false
+  - label: 辅助功能模块
+    items:
+      - label: 🎮 按键处理模块
+        file: buttons-module.md
+        translate: false
+      - label: 📊 数据解析模块
+        file: parseinfo-module.md
+        translate: false
+      - label: 🔌 I2C通信模块
+        file: wire-module.md
+        translate: false
+      - label: 🛠️ 系统工具模块
+        file: utils-module.md
+        translate: false

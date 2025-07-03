@@ -1,8 +1,8 @@
 {
     "site_name": "OpenEarable 2.0 技术文档",
     "site_slogon": "智能可穿戴设备完整源码分析",
-    "site_root_url": "/",
-    "site_domain": "openearable-docs.github.io",
+    "site_root_url": "https://lhfdoc.github.io/",
+    "site_domain": "lhfdocs.github.io",
     "site_protocol": "https",
     "config_template_dir": "config",
     "route": {
