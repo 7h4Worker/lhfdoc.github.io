@@ -1,7 +1,7 @@
 {
-    "site_name": "teedoc",
+    "site_name": "teedoc_lhf",
     "site_slogon": "happy to write",
-    "site_root_url": "/my_site/",
+    "site_root_url": "/",
     "site_domain": "teedoc.neucrack.com",
     "site_protocol": "https",
     "config_template_dir": "config",
