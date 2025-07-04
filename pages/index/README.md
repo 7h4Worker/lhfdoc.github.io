@@ -13,9 +13,9 @@ id: home_page
 </div>
 
 <div id="big_btn_wrapper">
-    <a class="btn" href="/openearable/">🎧 OpenEarable 项目</a>
-    <a class="btn" href="/projects/">💻 其他项目</a>
-    <a class="btn" href="/notes/">📝 学习笔记</a>
+    <a class="btn" href="/lhfdoc.github.io/openearable/">🎧 OpenEarable 项目</a>
+    <a class="btn" href="/lhfdoc.github.io/projects/">💻 其他项目</a>
+    <a class="btn" href="/lhfdoc.github.io/notes/">📝 学习笔记</a>
 </div>
 
 <div style="margin-top: 40px;">

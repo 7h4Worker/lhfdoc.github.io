@@ -1,9 +1,9 @@
 {
     "locale": "en",
     "navbar": {
-        "title": "teedoc",
+        "title": "7h4Worker's Docs",
         "logo": {
-            "alt": "teedoc logo",
+            "alt": "7h4Worker's Docs logo",
             "src": "/static/image/logo.png"
         },
         "home_url": "/en/",

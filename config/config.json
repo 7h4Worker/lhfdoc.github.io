@@ -1,21 +1,26 @@
 {
     "locale": "zh_CN",
     "navbar": {
-        "title": "OpenEarable 2.0",
+        "title": "7h4Worker's Docs",
         "logo": {
-            "alt": "OpenEarable 2.0 logo",
+            "alt": "7h4Worker's Docs logo",
             "url": ""
         },
         "home_url": "/",
         "items": [
             {
-                "url": "/guide/",
-                "label": "项目指南",
+                "url": "/openearable/",
+                "label": "OpenEarable 项目",
                 "position": "left"
             },
             {
-                "url": "/modules/",
-                "label": "模块文档",
+                "url": "/projects/",
+                "label": "其他项目", 
+                "position": "left"
+            },
+            {
+                "url": "/notes/",
+                "label": "学习笔记",
                 "position": "left"
             }
         ]
