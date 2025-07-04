@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://7h4worker.github.io/sitemap.xml
