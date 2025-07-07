@@ -8,6 +8,7 @@
     "route": {
         "docs": {
             "/embedded_dev/": "docs/embedded_dev",
+            "/openearable/": "docs/embedded_dev/openearable",
             "/bci_paradigms/": "docs/bci_paradigms",
             "/bci_hardware/": "docs/bci_hardware",
             "/bci_algorithms/": "docs/bci_algorithms",

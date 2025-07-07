@@ -2,13 +2,6 @@ items:
   - label: 嵌入式开发
     file: README.md
     translate: false
-  - label: 📁 开源项目分析
-    items:
-      - label: Nordic nRF5340
-        items:
-          - label: 🎧 OpenEarable 2.0
-            file: opensource_projects/nordic_nrf5340/README.md
-            translate: false
   - label: 💻 硬件平台
     items:
       - label: Nordic nRF系列
