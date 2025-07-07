@@ -1,0 +1,37 @@
+items:
+  - label: 随笔
+    file: README.md
+    translate: false
+  - label: 💭 思考篇
+    items:
+      - label: 技术思考
+        file: thoughts/tech.md
+        translate: false
+      - label: 成长感悟
+        file: thoughts/growth.md
+        translate: false
+      - label: 人生哲学
+        file: thoughts/philosophy.md
+        translate: false
+  - label: 📚 学习篇
+    items:
+      - label: 项目复盘
+        file: learning/projects.md
+        translate: false
+      - label: 技术调研
+        file: learning/research.md
+        translate: false
+      - label: 读书笔记
+        file: learning/books.md
+        translate: false
+  - label: 🌊 生活篇
+    items:
+      - label: 兴趣爱好
+        file: life/hobbies.md
+        translate: false
+      - label: 旅行见闻
+        file: life/travel.md
+        translate: false
+      - label: 日常感悟
+        file: life/daily.md
+        translate: false

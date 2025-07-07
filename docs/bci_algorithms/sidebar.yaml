@@ -1,0 +1,37 @@
+items:
+  - label: 脑机接口算法
+    file: README.md
+    translate: false
+  - label: 📊 信号处理算法
+    items:
+      - label: 预处理
+        file: signal_processing/preprocessing.md
+        translate: false
+      - label: 特征提取
+        file: signal_processing/features.md
+        translate: false
+      - label: 空间滤波
+        file: signal_processing/spatial.md
+        translate: false
+  - label: 🧠 机器学习算法
+    items:
+      - label: 传统方法
+        file: machine_learning/traditional.md
+        translate: false
+      - label: 深度学习
+        file: machine_learning/deep_learning.md
+        translate: false
+      - label: 在线算法
+        file: machine_learning/online.md
+        translate: false
+  - label: 🎯 应用案例
+    items:
+      - label: P300分类
+        file: applications/p300.md
+        translate: false
+      - label: 运动想象
+        file: applications/motor_imagery.md
+        translate: false
+      - label: SSVEP检测
+        file: applications/ssvep.md
+        translate: false

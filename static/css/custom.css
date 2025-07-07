@@ -1,96 +1,352 @@
 
-/* VS Code主题配色 */
+/* Blue Topaz主题配色 */
 :root {
-    --vscode-blue: #007ACC;
-    --vscode-dark-blue: #005a9e;
-    --vscode-bg-dark: #1e1e1e;
-    --vscode-sidebar-dark: #252526;
-    --vscode-editor-dark: #1e1e1e;
-    --vscode-text-light: #cccccc;
-    --vscode-text-white: #ffffff;
-    --vscode-accent-orange: #ce9178;
-    --vscode-accent-green: #608b4e;
-    --vscode-accent-purple: #c586c0;
+    /* 主色调 - Blue Topaz 蓝色系 */
+    --bt-primary: #2563eb;
+    --bt-primary-light: #3b82f6;
+    --bt-primary-dark: #1d4ed8;
+    --bt-secondary: #667eea;
+    --bt-secondary-light: #764ba2;
+    
+    /* 背景色 */
+    --bt-bg-primary: #0f172a;
+    --bt-bg-secondary: #1e293b;
+    --bt-bg-tertiary: #334155;
+    --bt-bg-card: #1e293b;
+    --bt-bg-hover: #2d3748;
+    
+    /* 文字颜色 */
+    --bt-text-primary: #f1f5f9;
+    --bt-text-secondary: #cbd5e1;
+    --bt-text-muted: #94a3b8;
+    --bt-text-accent: #38bdf8;
+    
+    /* 边框和分割线 */
+    --bt-border: #334155;
+    --bt-border-light: #475569;
+    
+    /* 特殊颜色 */
+    --bt-success: #10b981;
+    --bt-warning: #f59e0b;
+    --bt-error: #ef4444;
+    --bt-info: #06b6d4;
+    
+    /* 渐变色 */
+    --bt-gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bt-gradient-2: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --bt-gradient-3: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    --bt-gradient-4: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    --bt-gradient-5: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --bt-gradient-6: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
 }
 
-/* 首页标题样式 */
-#home_page h1 {
-    color: var(--vscode-blue);
-    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-    font-weight: 600;
+/* 全局基础样式 */
+* {
+    scroll-behavior: smooth;
 }
 
-.dark #home_page h1 {
-    color: var(--vscode-text-white);
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-#home_page h3 {
-    color: var(--vscode-text-light);
-    font-family: 'Segoe UI', 'Roboto', sans-serif;
+/* 深色主题样式 */
+.dark {
+    background-color: var(--bt-bg-primary) !important;
+    color: var(--bt-text-primary) !important;
 }
 
-/* 按钮样式 - VS Code风格 */
-.btn {
-    background-color: var(--vscode-blue) !important;
-    border: 1px solid var(--vscode-dark-blue) !important;
-    color: white !important;
-    font-family: 'Segoe UI', 'Roboto', sans-serif !important;
-    padding: 8px 16px !important;
-    border-radius: 2px !important;
-    transition: background-color 0.2s ease !important;
-}
-
-.btn:hover {
-    background-color: var(--vscode-dark-blue) !important;
-}
-
-/* 代码块样式 */
-pre, code {
-    font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
-}
-
-.dark pre {
-    background-color: var(--vscode-editor-dark) !important;
-    border: 1px solid #333 !important;
-}
-
-/* 侧边栏样式 */
-.dark .sidebar {
-    background-color: var(--vscode-sidebar-dark) !important;
-}
-
-/* 链接样式 */
-a {
-    color: var(--vscode-blue) !important;
-}
-
-.dark a {
-    color: #4fc3f7 !important;
-}
-
-a:hover {
-    color: var(--vscode-dark-blue) !important;
-}
-
-/* 响应式设计 */
-@media screen and (max-width: 900px) {
-    #home_page h1 {
-        color: var(--vscode-blue);
-        font-size: 2rem;
-    }
-}
-
-/* 特殊元素样式 */
-.highlight {
-    background-color: var(--vscode-accent-orange) !important;
-    color: var(--vscode-bg-dark) !important;
-    padding: 2px 4px !important;
-    border-radius: 2px !important;
+.dark .main-content {
+    background-color: var(--bt-bg-primary) !important;
 }
 
 /* 导航栏样式 */
 .dark .navbar {
-    background-color: var(--vscode-bg-dark) !important;
-    border-bottom: 1px solid #333 !important;
+    background: var(--bt-bg-secondary) !important;
+    border-bottom: 1px solid var(--bt-border) !important;
+    backdrop-filter: blur(10px);
+}
+
+.dark .navbar-brand {
+    color: var(--bt-text-primary) !important;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.dark .navbar-nav .nav-link {
+    color: var(--bt-text-secondary) !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin: 0 4px;
+    padding: 8px 12px !important;
+}
+
+.dark .navbar-nav .nav-link:hover {
+    color: var(--bt-text-accent) !important;
+    background-color: var(--bt-bg-hover) !important;
+    transform: translateY(-1px);
+}
+
+/* 侧边栏样式 */
+.dark .sidebar {
+    background-color: var(--bt-bg-secondary) !important;
+    border-right: 1px solid var(--bt-border) !important;
+}
+
+.dark .sidebar-item {
+    border-radius: 8px;
+    margin: 2px 8px;
+    transition: all 0.3s ease;
+}
+
+.dark .sidebar-item:hover {
+    background-color: var(--bt-bg-hover) !important;
+    transform: translateX(4px);
+}
+
+.dark .sidebar-item.active {
+    background: var(--bt-gradient-1) !important;
+    color: white !important;
+}
+
+/* 内容区域样式 */
+.dark .content {
+    background-color: var(--bt-bg-primary) !important;
+    color: var(--bt-text-primary) !important;
+}
+
+/* 标题样式 */
+.dark h1 {
+    color: var(--bt-text-primary) !important;
+    font-weight: 700;
+    border-bottom: 2px solid var(--bt-primary);
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+}
+
+.dark h2 {
+    color: var(--bt-text-primary) !important;
+    font-weight: 600;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+.dark h3 {
+    color: var(--bt-text-secondary) !important;
+    font-weight: 600;
+}
+
+.dark h4, .dark h5, .dark h6 {
+    color: var(--bt-text-secondary) !important;
+}
+
+/* 链接样式 */
+.dark a {
+    color: var(--bt-text-accent) !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.dark a:hover {
+    color: var(--bt-primary-light) !important;
+    text-decoration: underline;
+}
+
+/* 按钮样式 */
+.btn {
+    background: var(--bt-gradient-1) !important;
+    border: none !important;
+    color: white !important;
+    padding: 12px 24px !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4) !important;
+    color: white !important;
+}
+
+/* 代码块样式 */
+.dark pre {
+    background-color: var(--bt-bg-tertiary) !important;
+    border: 1px solid var(--bt-border) !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    overflow-x: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark code {
+    background-color: var(--bt-bg-tertiary) !important;
+    color: var(--bt-text-accent) !important;
+    padding: 2px 6px !important;
+    border-radius: 6px !important;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace !important;
+}
+
+.dark pre code {
+    background-color: transparent !important;
+    padding: 0 !important;
+}
+
+/* 表格样式 */
+.dark table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background-color: var(--bt-bg-secondary) !important;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dark th {
+    background: var(--bt-gradient-1) !important;
+    color: white !important;
+    padding: 16px !important;
+    font-weight: 600;
+}
+
+.dark td {
+    padding: 12px 16px !important;
+    border-bottom: 1px solid var(--bt-border) !important;
+    color: var(--bt-text-secondary) !important;
+}
+
+.dark tr:hover {
+    background-color: var(--bt-bg-hover) !important;
+}
+
+/* 引用块样式 */
+.dark blockquote {
+    border-left: 4px solid var(--bt-primary) !important;
+    background-color: var(--bt-bg-secondary) !important;
+    padding: 16px 20px !important;
+    margin: 20px 0 !important;
+    border-radius: 0 12px 12px 0 !important;
+    color: var(--bt-text-secondary) !important;
+}
+
+/* 列表样式 */
+.dark ul, .dark ol {
+    color: var(--bt-text-secondary) !important;
+    line-height: 1.8;
+}
+
+.dark li::marker {
+    color: var(--bt-primary) !important;
+}
+
+/* 分割线样式 */
+.dark hr {
+    border: none !important;
+    height: 2px !important;
+    background: var(--bt-gradient-1) !important;
+    margin: 32px 0 !important;
+    border-radius: 2px;
+}
+
+/* 首页特殊样式 */
+#home_page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* 卡片样式 */
+.card {
+    background-color: var(--bt-bg-card) !important;
+    border: 1px solid var(--bt-border) !important;
+    border-radius: 16px !important;
+    padding: 24px !important;
+    margin: 16px 0 !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    border-color: var(--bt-primary);
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+    .dark .navbar-nav {
+        flex-direction: column;
+        background-color: var(--bt-bg-secondary);
+        border-radius: 12px;
+        margin-top: 12px;
+        padding: 12px;
+    }
+    
+    #home_page {
+        padding: 20px 16px;
+    }
+    
+    .card {
+        margin: 12px 0;
+        padding: 20px;
+    }
+}
+
+/* 滚动条样式 */
+.dark ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: var(--bt-bg-secondary);
+    border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: var(--bt-primary);
+    border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: var(--bt-primary-light);
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* 特殊元素样式 */
+.highlight {
+    background: var(--bt-gradient-3) !important;
+    color: white !important;
+    padding: 4px 8px !important;
+    border-radius: 8px !important;
+    font-weight: 600;
+}
+
+/* 页脚样式 */
+.dark .footer {
+    background-color: var(--bt-bg-secondary) !important;
+    border-top: 1px solid var(--bt-border) !important;
+    color: var(--bt-text-muted) !important;
+    padding: 24px 0;
+    margin-top: 60px;
 }
 

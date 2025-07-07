@@ -1,0 +1,55 @@
+items:
+  - label: 嵌入式开发
+    file: README.md
+    translate: false
+  - label: 📁 开源项目分析
+    items:
+      - label: Nordic nRF5340
+        items:
+          - label: 🎧 OpenEarable 2.0
+            file: opensource_projects/nordic_nrf5340/README.md
+            translate: false
+  - label: 💻 硬件平台
+    items:
+      - label: Nordic nRF系列
+        file: hardware_platforms/nordic.md
+        translate: false
+      - label: ESP32系列  
+        file: hardware_platforms/esp32.md
+        translate: false
+      - label: STM32系列
+        file: hardware_platforms/stm32.md
+        translate: false
+  - label: ⚙️ 实时操作系统
+    items:
+      - label: Zephyr RTOS
+        file: rtos/zephyr.md
+        translate: false
+      - label: FreeRTOS
+        file: rtos/freertos.md
+        translate: false
+      - label: RT-Thread
+        file: rtos/rtthread.md
+        translate: false
+  - label: 🔗 通信协议
+    items:
+      - label: 蓝牙协议
+        file: protocols/bluetooth.md
+        translate: false
+      - label: WiFi协议
+        file: protocols/wifi.md
+        translate: false
+      - label: LoRa/LoRaWAN
+        file: protocols/lora.md
+        translate: false
+  - label: 🛠️ 开发工具
+    items:
+      - label: IDE环境
+        file: tools/ide.md
+        translate: false
+      - label: 调试工具
+        file: tools/debug.md
+        translate: false
+      - label: 仿真平台
+        file: tools/simulation.md
+        translate: false

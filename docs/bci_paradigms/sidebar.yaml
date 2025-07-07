@@ -1,0 +1,36 @@
+items:
+  - label: 脑机接口范式
+    file: README.md
+    translate: false
+  - label: 📈 事件相关电位
+    items:
+      - label: P300范式
+        file: erp/p300.md
+        translate: false
+      - label: N170范式
+        file: erp/n170.md
+        translate: false
+  - label: 🌊 稳态视觉诱发电位
+    items:
+      - label: SSVEP基础
+        file: ssvep/basics.md
+        translate: false
+      - label: 频率编码
+        file: ssvep/frequency.md
+        translate: false
+  - label: 💭 运动想象
+    items:
+      - label: MI基础理论
+        file: motor_imagery/basics.md
+        translate: false
+      - label: 特征提取
+        file: motor_imagery/features.md
+        translate: false
+  - label: 🎵 听觉脑机接口
+    items:
+      - label: 听觉P300
+        file: auditory/p300.md
+        translate: false
+      - label: 听觉稳态响应
+        file: auditory/assr.md
+        translate: false

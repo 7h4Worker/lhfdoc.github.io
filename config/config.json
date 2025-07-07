@@ -1,26 +1,46 @@
 {
     "locale": "zh_CN",
     "navbar": {
-        "title": "7h4Worker's Docs",
+        "title": "7h4Worker",
         "logo": {
-            "alt": "7h4Worker's Docs logo",
+            "alt": "7h4Worker",
             "url": ""
         },
         "home_url": "/",
         "items": [
             {
-                "url": "/openearable/",
-                "label": "OpenEarable 项目",
+                "url": "/embedded_dev/",
+                "label": "🔧 嵌入式开发",
                 "position": "left"
             },
             {
-                "url": "/projects/",
-                "label": "其他项目", 
+                "url": "/bci_paradigms/",
+                "label": "🧠 脑机接口范式",
                 "position": "left"
             },
             {
-                "url": "/notes/",
-                "label": "学习笔记",
+                "url": "/bci_hardware/",
+                "label": "⚡ 脑机接口硬件",
+                "position": "left"
+            },
+            {
+                "url": "/bci_algorithms/",
+                "label": "🤖 脑机接口算法",
+                "position": "left"
+            },
+            {
+                "url": "/ui_development/",
+                "label": "🎨 UI设计与开发",
+                "position": "left"
+            },
+            {
+                "url": "/edge_ai/",
+                "label": "🚀 边缘AI",
+                "position": "left"
+            },
+            {
+                "url": "/essays/",
+                "label": "📝 随笔",
                 "position": "left"
             }
         ]

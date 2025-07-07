@@ -1,15 +1,19 @@
 {
-    "site_name": "7h4Worker's Tech Docs",
-    "site_slogon": "代码阅读 · 技术笔记 · 项目分析",
+    "site_name": "7h4Worker",
+    "site_slogon": "技术探索 · 知识分享 · 持续学习",
     "site_root_url": "/lhfdoc.github.io/",
     "site_domain": "7h4worker.github.io",
     "site_protocol": "https",
     "config_template_dir": "config",
     "route": {
         "docs": {
-            "/openearable/": "docs/openearable",
-            "/projects/": "docs/projects",
-            "/notes/": "docs/notes"
+            "/embedded_dev/": "docs/embedded_dev",
+            "/bci_paradigms/": "docs/bci_paradigms",
+            "/bci_hardware/": "docs/bci_hardware",
+            "/bci_algorithms/": "docs/bci_algorithms",
+            "/ui_development/": "docs/ui_development",
+            "/edge_ai/": "docs/edge_ai",
+            "/essays/": "docs/essays"
         },
         "pages": {
             "/": "pages/index"

@@ -1,0 +1,42 @@
+items:
+  - label: 脑机接口硬件
+    file: README.md
+    translate: false
+  - label: 📡 信号采集
+    items:
+      - label: 电极系统
+        file: acquisition/electrodes.md
+        translate: false
+      - label: 放大器设计
+        file: acquisition/amplifiers.md
+        translate: false
+      - label: ADC选择
+        file: acquisition/adc.md
+        translate: false
+  - label: 🖥️ 数据处理
+    items:
+      - label: 嵌入式处理器
+        file: processing/mcu.md
+        translate: false
+      - label: DSP芯片
+        file: processing/dsp.md
+        translate: false
+      - label: FPGA实现
+        file: processing/fpga.md
+        translate: false
+  - label: 🔋 电源管理
+    items:
+      - label: 低功耗设计
+        file: power/low_power.md
+        translate: false
+      - label: 电池技术
+        file: power/battery.md
+        translate: false
+  - label: 📶 无线通信
+    items:
+      - label: 蓝牙传输
+        file: wireless/bluetooth.md
+        translate: false
+      - label: WiFi连接
+        file: wireless/wifi.md
+        translate: false

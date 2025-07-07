@@ -1,0 +1,37 @@
+items:
+  - label: 边缘AI
+    file: README.md
+    translate: false
+  - label: 🔬 核心技术
+    items:
+      - label: 模型压缩
+        file: core/compression.md
+        translate: false
+      - label: 推理优化
+        file: core/optimization.md
+        translate: false
+      - label: 硬件加速
+        file: core/acceleration.md
+        translate: false
+  - label: 🛠️ 开发框架
+    items:
+      - label: 移动端框架
+        file: frameworks/mobile.md
+        translate: false
+      - label: 嵌入式框架
+        file: frameworks/embedded.md
+        translate: false
+      - label: 云边协同
+        file: frameworks/cloud_edge.md
+        translate: false
+  - label: 🎯 应用场景
+    items:
+      - label: 计算机视觉
+        file: applications/cv.md
+        translate: false
+      - label: 语音处理
+        file: applications/speech.md
+        translate: false
+      - label: 传感器融合
+        file: applications/sensors.md
+        translate: false
