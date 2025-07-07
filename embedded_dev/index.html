@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="嵌入式, 开发, 单片机, RTOS, 硬件">
+    
+    
+    <meta name="description" content="嵌入式系统开发相关技术文档和项目分析">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/search/style.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>嵌入式开发 - 7h4Worker</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/lhfdoc.github.io/">
+                
+                
+                    <h2>嵌入式开发</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active with_link"><a href="/lhfdoc.github.io/embedded_dev/index.html"><span class="label">嵌入式开发</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">🎧 OpenEarable 2.0</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/index.html"><span class="label">项目入门</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/project-overview.html"><span class="label">📋 项目概述</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/architecture.html"><span class="label">🏗️ 系统架构</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/deployment.html"><span class="label">🚀 部署指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/teedoc-guide.html"><span class="label">📖 teedoc使用指南</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">核心功能模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/battery-module.html"><span class="label">🔋 电源管理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/audio-module.html"><span class="label">🎵 音频处理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/sensor-module.html"><span class="label">📡 传感器管理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/bluetooth-module.html"><span class="label">📶 蓝牙通信模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/storage-module.html"><span class="label">💾 数据存储模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/drivers-module.html"><span class="label">🔧 硬件驱动模块</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">辅助功能模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/buttons-module.html"><span class="label">🎮 按键处理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/parseinfo-module.html"><span class="label">📊 数据解析模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/wire-module.html"><span class="label">🔌 I2C通信模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/utils-module.html"><span class="label">🛠️ 系统工具模块</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">💻 硬件平台</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/nordic.html&from=/embedded_dev/hardware_platforms/nordic.html"><span class="label">Nordic nRF系列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/esp32.html&from=/embedded_dev/hardware_platforms/esp32.html"><span class="label">ESP32系列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/stm32.html&from=/embedded_dev/hardware_platforms/stm32.html"><span class="label">STM32系列</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">⚙️ 实时操作系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/zephyr.html&from=/embedded_dev/rtos/zephyr.html"><span class="label">Zephyr RTOS</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/freertos.html&from=/embedded_dev/rtos/freertos.html"><span class="label">FreeRTOS</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/rtthread.html&from=/embedded_dev/rtos/rtthread.html"><span class="label">RT-Thread</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🔗 通信协议</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/bluetooth.html&from=/embedded_dev/protocols/bluetooth.html"><span class="label">蓝牙协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/wifi.html&from=/embedded_dev/protocols/wifi.html"><span class="label">WiFi协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/lora.html&from=/embedded_dev/protocols/lora.html"><span class="label">LoRa/LoRaWAN</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🛠️ 开发工具</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/ide.html&from=/embedded_dev/tools/ide.html"><span class="label">IDE环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/debug.html&from=/embedded_dev/tools/debug.html"><span class="label">调试工具</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/simulation.html&from=/embedded_dev/tools/simulation.html"><span class="label">仿真平台</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>嵌入式开发</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h1 id="%F0%9F%94%A7-%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91">🔧 嵌入式开发</h1>
+<p>记录嵌入式系统开发中的技术研究、项目分析和实践经验。</p>
+<h2 id="%F0%9F%93%9A-%E5%86%85%E5%AE%B9%E5%88%86%E7%B1%BB">📚 内容分类</h2>
+<h3 id="%F0%9F%9A%80-%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90">🚀 开源项目分析</h3>
+<p>深入分析优秀的开源嵌入式项目，学习先进的架构设计和编程技巧。</p>
+<h4 id="Nordic-nRF5340-%E7%B3%BB%E5%88%97">Nordic nRF5340 系列</h4>
+<ul>
+<li><strong><a href="./opensource_projects/nordic_nrf5340/"  >OpenEarable 2.0</a></strong> - 开源智能耳戴设备完整分析</li>
+<li>音频处理和传感器融合技术</li>
+<li>Bluetooth LE Audio 协议栈实现</li>
+</ul>
+<h3 id="%F0%9F%92%BB-%E7%A1%AC%E4%BB%B6%E5%B9%B3%E5%8F%B0">💻 硬件平台</h3>
+<ul>
+<li><strong>Nordic nRF系列</strong> - 低功耗蓝牙和Thread网络</li>
+<li><strong>ESP32系列</strong> - WiFi和蓝牙双模芯片</li>
+<li><strong>STM32系列</strong> - ARM Cortex-M微控制器</li>
+</ul>
+<h3 id="%E2%9A%99%EF%B8%8F-%E5%AE%9E%E6%97%B6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">⚙️ 实时操作系统</h3>
+<ul>
+<li><strong>Zephyr RTOS</strong> - 可扩展的实时操作系统</li>
+<li><strong>FreeRTOS</strong> - 市场领先的RTOS内核</li>
+<li><strong>RT-Thread</strong> - 国产物联网操作系统</li>
+</ul>
+<h3 id="%F0%9F%94%97-%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE">🔗 通信协议</h3>
+<ul>
+<li><strong>蓝牙协议</strong> - 经典蓝牙和低功耗蓝牙</li>
+<li><strong>WiFi协议</strong> - 802.11系列无线通信</li>
+<li><strong>LoRa/LoRaWAN</strong> - 长距离低功耗通信</li>
+</ul>
+<h3 id="%F0%9F%9B%A0%EF%B8%8F-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7">🛠️ 开发工具</h3>
+<ul>
+<li><strong>IDE环境</strong> - VS Code, Keil, IAR等</li>
+<li><strong>调试工具</strong> - J-Link, ST-Link等</li>
+<li><strong>仿真平台</strong> - QEMU, Renode等</li>
+</ul>
+<hr />
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 10px; margin-top: 30px;">
+    <h3 style="color: white; margin-top: 0;">💡 学习路径建议</h3>
+    <p>1. <strong>基础理论</strong> - 掌握嵌入式系统基本概念和硬件原理</p>
+    <p>2. <strong>开发环境</strong> - 熟悉主流开发工具和调试方法</p>
+    <p>3. <strong>实时系统</strong> - 学习RTOS的使用和任务调度机制</p>
+    <p>4. <strong>项目实践</strong> - 通过实际项目加深理解和应用</p>
+    <p>5. <strong>优化进阶</strong> - 学习性能优化和低功耗设计技巧</p>
+</div>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/lhfdoc.github.io/embedded_dev/openearable/index.html">
+                            <span class="label">项目入门</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关资源</a><ul><li><a target="_blank" href="https://www.nordicsemi.com/">Nordic官网</a></li>
+<li><a target="_blank" href="https://zephyrproject.org/">Zephyr项目</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/lhfdoc.github.io/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/search/search_main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/custom.js"></script>
+    
+</body>
+
+</html>

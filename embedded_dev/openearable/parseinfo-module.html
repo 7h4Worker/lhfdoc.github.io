@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/search/style.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>OpenEarable 2.0 - 数据解析模块 (ParseInfo Module) - 7h4Worker</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/lhfdoc.github.io/">
+                
+                
+                    <h2>嵌入式开发</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/index.html"><span class="label">嵌入式开发</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">🎧 OpenEarable 2.0</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/index.html"><span class="label">项目入门</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/project-overview.html"><span class="label">📋 项目概述</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/architecture.html"><span class="label">🏗️ 系统架构</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/deployment.html"><span class="label">🚀 部署指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/teedoc-guide.html"><span class="label">📖 teedoc使用指南</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">核心功能模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/battery-module.html"><span class="label">🔋 电源管理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/audio-module.html"><span class="label">🎵 音频处理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/sensor-module.html"><span class="label">📡 传感器管理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/bluetooth-module.html"><span class="label">📶 蓝牙通信模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/storage-module.html"><span class="label">💾 数据存储模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/drivers-module.html"><span class="label">🔧 硬件驱动模块</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">辅助功能模块</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/buttons-module.html"><span class="label">🎮 按键处理模块</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/parseinfo-module.html"><span class="label">📊 数据解析模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/wire-module.html"><span class="label">🔌 I2C通信模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/utils-module.html"><span class="label">🛠️ 系统工具模块</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">💻 硬件平台</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/nordic.html&from=/embedded_dev/hardware_platforms/nordic.html"><span class="label">Nordic nRF系列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/esp32.html&from=/embedded_dev/hardware_platforms/esp32.html"><span class="label">ESP32系列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/stm32.html&from=/embedded_dev/hardware_platforms/stm32.html"><span class="label">STM32系列</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">⚙️ 实时操作系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/zephyr.html&from=/embedded_dev/rtos/zephyr.html"><span class="label">Zephyr RTOS</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/freertos.html&from=/embedded_dev/rtos/freertos.html"><span class="label">FreeRTOS</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/rtthread.html&from=/embedded_dev/rtos/rtthread.html"><span class="label">RT-Thread</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🔗 通信协议</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/bluetooth.html&from=/embedded_dev/protocols/bluetooth.html"><span class="label">蓝牙协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/wifi.html&from=/embedded_dev/protocols/wifi.html"><span class="label">WiFi协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/lora.html&from=/embedded_dev/protocols/lora.html"><span class="label">LoRa/LoRaWAN</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🛠️ 开发工具</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/ide.html&from=/embedded_dev/tools/ide.html"><span class="label">IDE环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/debug.html&from=/embedded_dev/tools/debug.html"><span class="label">调试工具</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/simulation.html&from=/embedded_dev/tools/simulation.html"><span class="label">仿真平台</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>OpenEarable 2.0 - 数据解析模块 (ParseInfo Module)</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2025-07-07">
+                                    2025-07-07
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="%E6%A6%82%E8%BF%B0">概述</h2>
+<p>数据解析模块负责定义和管理传感器数据的解析方案，为蓝牙通信提供传感器配置信息和数据格式描述。该模块通过标准化的数据结构定义，使客户端能够正确解析和处理来自OpenEarable设备的传感器数据。</p>
+<h2 id="%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6">核心组件</h2>
+<h3 id="1.-%E4%BC%A0%E6%84%9F%E5%99%A8%E6%96%B9%E6%A1%88-%28%3Ccode%3ESensorScheme.h/cpp%3C/code%3E%29">1. 传感器方案 (<code>SensorScheme.h/cpp</code>)</h3>
+<p>定义传感器的完整配置和解析方案：</p>
+<h4 id="%E6%A0%B8%E5%BF%83%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">核心数据结构</h4>
+
+<pre class="language-cpp"><code class="language-cpp">struct SensorScheme {
+    const char* name;                       // 传感器名称
+    uint8_t id;                            // 传感器ID
+    uint8_t groupCount;                    // 组件组数量
+    struct SensorComponentGroup* groups;   // 组件组数组
+    struct SensorConfigOptions configOptions;  // 配置选项
+};
+
+struct ParseInfoScheme {
+    uint8_t sensorCount;        // 传感器数量
+    uint8_t* sensorIds;         // 传感器ID数组
+};
+</code></pre>
+<h4 id="%E9%85%8D%E7%BD%AE%E9%80%89%E9%A1%B9">配置选项</h4>
+
+<pre class="language-cpp"><code class="language-cpp">enum SensorConfigOptionsMasks {
+    DATA_STREAMING = 0x01,      // 支持数据流传输
+    DATA_STORAGE = 0x02,        // 支持数据存储
+    FREQUENCIES_DEFINED = 0x10, // 定义了频率选项
+};
+
+struct FrequencyOptions {
+    uint8_t frequencyCount;         // 频率选项数量
+    uint8_t defaultFrequencyIndex;  // 默认频率索引
+    uint8_t maxBleFrequencyIndex;   // 最大蓝牙频率索引
+    const float* frequencies;       // 频率数组
+};
+
+struct SensorConfigOptions {
+    uint8_t availableOptions;              // 可用选项掩码
+    struct FrequencyOptions frequencyOptions;  // 频率选项
+};
+</code></pre>
+<h4 id="%E6%A0%B8%E5%BF%83%E6%8E%A5%E5%8F%A3">核心接口</h4>
+
+<pre class="language-cpp"><code class="language-cpp">int initParseInfoService(struct ParseInfoScheme* scheme, struct SensorScheme* sensorSchemes);
+struct SensorScheme* getSensorSchemeForId(uint8_t id);
+struct ParseInfoScheme* getParseInfoScheme();
+float getSampleRateForSensorId(uint8_t id, uint8_t frequencyIndex);
+float getSampleRateForSensor(struct SensorScheme* sensorScheme, uint8_t frequencyIndex);
+</code></pre>
+<h3 id="2.-%E4%BC%A0%E6%84%9F%E5%99%A8%E7%BB%84%E4%BB%B6-%28%3Ccode%3ESensorComponent.h/cpp%3C/code%3E%29">2. 传感器组件 (<code>SensorComponent.h/cpp</code>)</h3>
+<p>定义传感器数据的组件结构：</p>
+<h4 id="%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6">基本组件</h4>
+
+<pre class="language-cpp"><code class="language-cpp">struct SensorComponent {
+    const char* name;           // 组件名称 (如 &quot;x&quot;, &quot;y&quot;, &quot;z&quot;)
+    const char* unit;           // 单位 (如 &quot;m/s²&quot;, &quot;°/s&quot;)
+    enum ParseType parseType;   // 数据类型
+};
+</code></pre>
+<h4 id="%E7%BB%84%E4%BB%B6%E7%BB%84">组件组</h4>
+
+<pre class="language-cpp"><code class="language-cpp">struct SensorComponentGroup {
+    const char* name;                      // 组名称 (如 &quot;Accelerometer&quot;)
+    size_t componentCount;                 // 组件数量
+    struct SensorComponent* components;    // 组件数组
+};
+</code></pre>
+<h4 id="%E5%BA%8F%E5%88%97%E5%8C%96%E6%8E%A5%E5%8F%A3">序列化接口</h4>
+
+<pre class="language-cpp"><code class="language-cpp">size_t getSensorComponentGroupSize(struct SensorComponentGroup* group);
+ssize_t serializeSensorComponentGroup(struct SensorComponentGroup* group, 
+                                    char* buffer, size_t bufferSize);
+</code></pre>
+<h3 id="3.-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89-%28%3Ccode%3EParseType.h%3C/code%3E%29">3. 数据类型定义 (<code>ParseType.h</code>)</h3>
+<p>定义支持的数据解析类型：</p>
+
+<pre class="language-cpp"><code class="language-cpp">enum ParseType {
+    PARSE_TYPE_INT8,     // 8位有符号整数
+    PARSE_TYPE_UINT8,    // 8位无符号整数
+    PARSE_TYPE_INT16,    // 16位有符号整数
+    PARSE_TYPE_UINT16,   // 16位无符号整数
+    PARSE_TYPE_INT32,    // 32位有符号整数
+    PARSE_TYPE_UINT32,   // 32位无符号整数
+    PARSE_TYPE_FLOAT,    // 32位浮点数
+    PARSE_TYPE_DOUBLE,   // 64位双精度浮点数
+};
+
+const int parseTypeSizes[] = {
+    1,  // INT8/UINT8
+    1,
+    2,  // INT16/UINT16
+    2,
+    4,  // INT32/UINT32
+    4,
+    4,  // FLOAT
+    8,  // DOUBLE
+};
+</code></pre>
+<h3 id="4.-%E9%BB%98%E8%AE%A4%E4%BC%A0%E6%84%9F%E5%99%A8%E5%AE%9A%E4%B9%89-%28%3Ccode%3EDefaultSensors.h%3C/code%3E%29">4. 默认传感器定义 (<code>DefaultSensors.h</code>)</h3>
+<p>预定义常用传感器的配置方案（具体实现可能在相应的.cpp文件中）。</p>
+<h2 id="%E8%93%9D%E7%89%99%E6%9C%8D%E5%8A%A1%E9%9B%86%E6%88%90">蓝牙服务集成</h2>
+<h3 id="GATT-%E6%9C%8D%E5%8A%A1%E5%AE%9A%E4%B9%89">GATT 服务定义</h3>
+
+<pre class="language-cpp"><code class="language-cpp">#define BT_UUID_PARSE_INFO_SERVICE_VAL \
+    BT_UUID_128_ENCODE(0xcaa25cb7, 0x7e1b, 0x44f2, 0xadc9, 0xe8c06c9ced43)
+
+#define BT_UUID_PARSE_INFO_CHARAC_VAL \
+    BT_UUID_128_ENCODE(0xcaa25cb9, 0x7e1b, 0x44f2, 0xadc9, 0xe8c06c9ced43)
+
+#define BT_UUID_PARSE_INFO_REQUEST_CHARAC_VAL \
+    BT_UUID_128_ENCODE(0xcaa25cba, 0x7e1b, 0x44f2, 0xadc9, 0xe8c06c9ced43)
+
+#define BT_UUID_PARSE_INFO_RESPONSE_CHARAC_VAL \
+    BT_UUID_128_ENCODE(0xcaa25cbb, 0x7e1b, 0x44f2, 0xadc9, 0xe8c06c9ced43)
+</code></pre>
+<h3 id="%E7%89%B9%E6%80%A7%E5%8A%9F%E8%83%BD">特性功能</h3>
+<ul>
+<li><strong>Parse Info Service</strong>: 主服务</li>
+<li><strong>Parse Info Characteristic</strong>: 基本解析信息</li>
+<li><strong>Request Characteristic</strong>: 客户端请求特定传感器信息</li>
+<li><strong>Response Characteristic</strong>: 服务器响应传感器配置</li>
+</ul>
+<h2 id="%E5%85%B8%E5%9E%8B%E4%BC%A0%E6%84%9F%E5%99%A8%E9%85%8D%E7%BD%AE%E7%A4%BA%E4%BE%8B">典型传感器配置示例</h2>
+<h3 id="IMU-%E4%BC%A0%E6%84%9F%E5%99%A8%E6%96%B9%E6%A1%88">IMU 传感器方案</h3>
+
+<pre class="language-cpp"><code class="language-cpp">// 加速度计组件
+struct SensorComponent accel_components[] = {
+    {&quot;x&quot;, &quot;m/s²&quot;, PARSE_TYPE_FLOAT},
+    {&quot;y&quot;, &quot;m/s²&quot;, PARSE_TYPE_FLOAT},
+    {&quot;z&quot;, &quot;m/s²&quot;, PARSE_TYPE_FLOAT}
+};
+
+struct SensorComponentGroup accel_group = {
+    &quot;Accelerometer&quot;,
+    3,
+    accel_components
+};
+
+// 陀螺仪组件
+struct SensorComponent gyro_components[] = {
+    {&quot;x&quot;, &quot;°/s&quot;, PARSE_TYPE_FLOAT},
+    {&quot;y&quot;, &quot;°/s&quot;, PARSE_TYPE_FLOAT},
+    {&quot;z&quot;, &quot;°/s&quot;, PARSE_TYPE_FLOAT}
+};
+
+struct SensorComponentGroup gyro_group = {
+    &quot;Gyroscope&quot;,
+    3,
+    gyro_components
+};
+
+// 频率选项
+const float imu_frequencies[] = {1.0f, 10.0f, 25.0f, 50.0f, 100.0f};
+struct FrequencyOptions imu_freq_options = {
+    5,      // 5个频率选项
+    2,      // 默认25Hz (索引2)
+    3,      // 蓝牙最大50Hz (索引3)
+    imu_frequencies
+};
+
+// IMU传感器方案
+struct SensorComponentGroup imu_groups[] = {accel_group, gyro_group};
+struct SensorScheme imu_scheme = {
+    &quot;IMU&quot;,
+    SENSOR_ID_IMU,
+    2,      // 2个组件组
+    imu_groups,
+    {
+        DATA_STREAMING | DATA_STORAGE | FREQUENCIES_DEFINED,
+        imu_freq_options
+    }
+};
+</code></pre>
+<h3 id="PPG-%E4%BC%A0%E6%84%9F%E5%99%A8%E6%96%B9%E6%A1%88">PPG 传感器方案</h3>
+
+<pre class="language-cpp"><code class="language-cpp">struct SensorComponent ppg_components[] = {
+    {&quot;raw&quot;, &quot;counts&quot;, PARSE_TYPE_UINT32},
+    {&quot;heart_rate&quot;, &quot;bpm&quot;, PARSE_TYPE_FLOAT}
+};
+
+struct SensorComponentGroup ppg_group = {
+    &quot;PPG&quot;,
+    2,
+    ppg_components
+};
+
+const float ppg_frequencies[] = {25.0f, 50.0f, 100.0f};
+struct FrequencyOptions ppg_freq_options = {
+    3, 1, 2,  // 3个选项，默认50Hz，蓝牙最大100Hz
+    ppg_frequencies
+};
+
+struct SensorScheme ppg_scheme = {
+    &quot;PPG&quot;,
+    SENSOR_ID_PPG,
+    1,
+    &amp;ppg_group,
+    {
+        DATA_STREAMING | DATA_STORAGE | FREQUENCIES_DEFINED,
+        ppg_freq_options
+    }
+};
+</code></pre>
+<h2 id="%E6%95%B0%E6%8D%AE%E5%BA%8F%E5%88%97%E5%8C%96">数据序列化</h2>
+<h3 id="%E7%BB%84%E4%BB%B6%E7%BB%84%E5%A4%A7%E5%B0%8F%E8%AE%A1%E7%AE%97">组件组大小计算</h3>
+
+<pre class="language-cpp"><code class="language-cpp">size_t getSensorComponentGroupSize(struct SensorComponentGroup* group) {
+    size_t size = 0;
+
+    // 组名长度 + 组件数量
+    size += strlen(group-&gt;name) + 1 + sizeof(group-&gt;componentCount);
+
+    // 每个组件的信息
+    for (size_t i = 0; i &lt; group-&gt;componentCount; i++) {
+        size += strlen(group-&gt;components[i].name) + 1;
+        size += strlen(group-&gt;components[i].unit) + 1;
+        size += sizeof(group-&gt;components[i].parseType);
+    }
+
+    return size;
+}
+</code></pre>
+<h3 id="%E5%BA%8F%E5%88%97%E5%8C%96%E6%A0%BC%E5%BC%8F">序列化格式</h3>
+
+<pre class="language-none"><code class="language-none">[Group Name][Component Count]
+  [Component 1 Name][Component 1 Unit][Component 1 Type]
+  [Component 2 Name][Component 2 Unit][Component 2 Type]
+  ...
+</code></pre>
+<h2 id="%E5%88%9D%E5%A7%8B%E5%8C%96%E6%B5%81%E7%A8%8B">初始化流程</h2>
+<h3 id="1.-%E6%9C%8D%E5%8A%A1%E5%88%9D%E5%A7%8B%E5%8C%96">1. 服务初始化</h3>
+
+<pre class="language-cpp"><code class="language-cpp">int initParseInfoService(struct ParseInfoScheme* scheme, 
+                        struct SensorScheme* sensorSchemes) {
+    // 1. 存储传感器方案引用
+    // 2. 初始化蓝牙GATT服务
+    // 3. 注册特性回调函数
+    // 4. 准备默认响应数据
+    return 0;
+}
+</code></pre>
+<h3 id="2.-%E6%96%B9%E6%A1%88%E6%9F%A5%E8%AF%A2">2. 方案查询</h3>
+
+<pre class="language-cpp"><code class="language-cpp">struct SensorScheme* getSensorSchemeForId(uint8_t id) {
+    // 遍历已注册的传感器方案
+    // 根据ID匹配并返回对应方案
+    return matching_scheme;
+}
+</code></pre>
+<h2 id="%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BA%A4%E4%BA%92%E5%8D%8F%E8%AE%AE">客户端交互协议</h2>
+<h3 id="1.-%E8%8E%B7%E5%8F%96%E4%BC%A0%E6%84%9F%E5%99%A8%E5%88%97%E8%A1%A8">1. 获取传感器列表</h3>
+
+<pre class="language-none"><code class="language-none">Client Request:  [REQUEST_SENSOR_LIST]
+Server Response: [SENSOR_COUNT][SENSOR_ID_1][SENSOR_ID_2]...
+</code></pre>
+<h3 id="2.-%E8%8E%B7%E5%8F%96%E4%BC%A0%E6%84%9F%E5%99%A8%E9%85%8D%E7%BD%AE">2. 获取传感器配置</h3>
+
+<pre class="language-none"><code class="language-none">Client Request:  [REQUEST_SENSOR_CONFIG][SENSOR_ID]
+Server Response: [SENSOR_NAME][GROUP_COUNT][GROUP_DATA...]
+</code></pre>
+<h3 id="3.-%E8%8E%B7%E5%8F%96%E9%A2%91%E7%8E%87%E9%80%89%E9%A1%B9">3. 获取频率选项</h3>
+
+<pre class="language-none"><code class="language-none">Client Request:  [REQUEST_FREQUENCIES][SENSOR_ID]
+Server Response: [FREQ_COUNT][DEFAULT_INDEX][MAX_BLE_INDEX][FREQ_1][FREQ_2]...
+</code></pre>
+<h2 id="%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86">内存管理</h2>
+<h3 id="%E9%9D%99%E6%80%81%E9%85%8D%E7%BD%AE">静态配置</h3>
+<ul>
+<li>传感器方案使用静态分配</li>
+<li>组件定义存储在常量区域</li>
+<li>避免运行时内存分配</li>
+</ul>
+<h3 id="%E7%BC%93%E5%86%B2%E5%8C%BA%E7%AE%A1%E7%90%86">缓冲区管理</h3>
+<ul>
+<li>序列化使用预分配缓冲区</li>
+<li>防止缓冲区溢出检查</li>
+<li>适当的错误处理</li>
+</ul>
+<h2 id="%E6%89%A9%E5%B1%95%E6%80%A7%E8%AE%BE%E8%AE%A1">扩展性设计</h2>
+<h3 id="%E6%96%B0%E4%BC%A0%E6%84%9F%E5%99%A8%E6%B7%BB%E5%8A%A0">新传感器添加</h3>
+<ol>
+<li>定义传感器组件结构</li>
+<li>创建传感器方案</li>
+<li>在默认方案中注册</li>
+<li>更新传感器ID枚举</li>
+</ol>
+<h3 id="%E6%96%B0%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%94%AF%E6%8C%81">新数据类型支持</h3>
+<ol>
+<li>扩展 <code>ParseType</code> 枚举</li>
+<li>更新 <code>parseTypeSizes</code> 数组</li>
+<li>修改序列化/反序列化逻辑</li>
+</ol>
+<h2 id="%E8%B0%83%E8%AF%95%E5%92%8C%E9%AA%8C%E8%AF%81">调试和验证</h2>
+<h3 id="%E9%85%8D%E7%BD%AE%E9%AA%8C%E8%AF%81">配置验证</h3>
+<ul>
+<li>检查组件数量一致性</li>
+<li>验证频率选项有效性</li>
+<li>确认数据类型支持</li>
+</ul>
+<h3 id="%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%8B%E8%AF%95">序列化测试</h3>
+<ul>
+<li>缓冲区大小验证</li>
+<li>数据完整性检查</li>
+<li>跨平台兼容性测试</li>
+</ul>
+<h2 id="%E6%80%BB%E7%BB%93">总结</h2>
+<p>数据解析模块提供了完整的传感器数据格式定义和管理框架，具有以下特点：</p>
+<ol>
+<li><strong>标准化</strong>: 统一的数据格式定义和解析方案</li>
+<li><strong>灵活性</strong>: 支持多种数据类型和传感器配置</li>
+<li><strong>可扩展</strong>: 易于添加新传感器和数据类型</li>
+<li><strong>高效性</strong>: 静态配置和优化的序列化机制</li>
+<li><strong>兼容性</strong>: 蓝牙GATT服务集成和跨平台支持</li>
+</ol>
+<p>该模块为OpenEarable设备的数据通信提供了可靠的格式化基础设施，确保客户端能够正确解析和处理传感器数据。</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/lhfdoc.github.io/embedded_dev/openearable/buttons-module.html">
+                            <span class="icon"></span>
+                            <span class="label">🎮 按键处理模块</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/lhfdoc.github.io/embedded_dev/openearable/wire-module.html">
+                            <span class="label">🔌 I2C通信模块</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关资源</a><ul><li><a target="_blank" href="https://www.nordicsemi.com/">Nordic官网</a></li>
+<li><a target="_blank" href="https://zephyrproject.org/">Zephyr项目</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/lhfdoc.github.io/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/search/search_main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/custom.js"></script>
+    
+</body>
+
+</html>

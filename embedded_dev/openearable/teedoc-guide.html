@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/search/style.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>TeeDoc 快速启动指南 - 7h4Worker</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/lhfdoc.github.io/">
+                
+                
+                    <h2>嵌入式开发</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/index.html"><span class="label">嵌入式开发</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">🎧 OpenEarable 2.0</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/index.html"><span class="label">项目入门</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/project-overview.html"><span class="label">📋 项目概述</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/architecture.html"><span class="label">🏗️ 系统架构</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/deployment.html"><span class="label">🚀 部署指南</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/teedoc-guide.html"><span class="label">📖 teedoc使用指南</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">核心功能模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/battery-module.html"><span class="label">🔋 电源管理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/audio-module.html"><span class="label">🎵 音频处理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/sensor-module.html"><span class="label">📡 传感器管理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/bluetooth-module.html"><span class="label">📶 蓝牙通信模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/storage-module.html"><span class="label">💾 数据存储模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/drivers-module.html"><span class="label">🔧 硬件驱动模块</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">辅助功能模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/buttons-module.html"><span class="label">🎮 按键处理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/parseinfo-module.html"><span class="label">📊 数据解析模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/wire-module.html"><span class="label">🔌 I2C通信模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/utils-module.html"><span class="label">🛠️ 系统工具模块</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">💻 硬件平台</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/nordic.html&from=/embedded_dev/hardware_platforms/nordic.html"><span class="label">Nordic nRF系列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/esp32.html&from=/embedded_dev/hardware_platforms/esp32.html"><span class="label">ESP32系列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/stm32.html&from=/embedded_dev/hardware_platforms/stm32.html"><span class="label">STM32系列</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">⚙️ 实时操作系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/zephyr.html&from=/embedded_dev/rtos/zephyr.html"><span class="label">Zephyr RTOS</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/freertos.html&from=/embedded_dev/rtos/freertos.html"><span class="label">FreeRTOS</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/rtthread.html&from=/embedded_dev/rtos/rtthread.html"><span class="label">RT-Thread</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🔗 通信协议</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/bluetooth.html&from=/embedded_dev/protocols/bluetooth.html"><span class="label">蓝牙协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/wifi.html&from=/embedded_dev/protocols/wifi.html"><span class="label">WiFi协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/lora.html&from=/embedded_dev/protocols/lora.html"><span class="label">LoRa/LoRaWAN</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🛠️ 开发工具</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/ide.html&from=/embedded_dev/tools/ide.html"><span class="label">IDE环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/debug.html&from=/embedded_dev/tools/debug.html"><span class="label">调试工具</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/simulation.html&from=/embedded_dev/tools/simulation.html"><span class="label">仿真平台</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>TeeDoc 快速启动指南</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2025-07-07">
+                                    2025-07-07
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="%E7%AE%80%E4%BB%8B">简介</h2>
+<p>TeeDoc 是一个基于 Python 的静态文档生成器，可以将 Markdown 文档转换为美观的静态网站。本指南将帮助你快速启动 OpenEarable 2.0 项目的文档网站。</p>
+<h2 id="%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82">环境要求</h2>
+<ul>
+<li>Python 3.7 或更高版本</li>
+<li>pip 包管理器</li>
+</ul>
+<h2 id="%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8">快速启动</h2>
+<h3 id="%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E4%BD%BF%E7%94%A8%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89">方法一：使用启动脚本（推荐）</h3>
+<p>我们提供了自动化的启动脚本，可以一键完成环境配置和文档构建。</p>
+<h4 id="Windows-%E7%94%A8%E6%88%B7">Windows 用户</h4>
+
+<pre class="language-bash"><code class="language-bash"># 双击运行或在命令行中执行
+.\启动TeeDoc服务器.bat
+</code></pre>
+<h4 id="Linux/macOS-%E7%94%A8%E6%88%B7">Linux/macOS 用户</h4>
+
+<pre class="language-bash"><code class="language-bash"># 给脚本添加执行权限
+chmod +x 启动TeeDoc服务器.sh
+
+# 运行脚本
+./启动TeeDoc服务器.sh
+</code></pre>
+<h3 id="%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E6%89%8B%E5%8A%A8%E5%90%AF%E5%8A%A8">方法二：手动启动</h3>
+<p>如果你希望手动控制每个步骤，可以按照以下步骤操作：</p>
+<ol>
+<li><p><strong>创建虚拟环境</strong></p>
+
+<pre class="language-bash"><code class="language-bash">python -m venv venv
+</code></pre>
+</li>
+<li><p><strong>激活虚拟环境</strong></p>
+
+<pre class="language-bash"><code class="language-bash"># Windows
+venv\Scripts\activate
+
+# Linux/macOS
+source venv/bin/activate
+</code></pre>
+</li>
+<li><p><strong>安装依赖包</strong></p>
+
+<pre class="language-bash"><code class="language-bash">pip install -r requirements.txt
+</code></pre>
+</li>
+<li><p><strong>构建文档</strong></p>
+
+<pre class="language-bash"><code class="language-bash">cd my_site
+teedoc build
+</code></pre>
+</li>
+<li><p><strong>启动服务器</strong></p>
+
+<pre class="language-bash"><code class="language-bash">teedoc serve
+</code></pre>
+</li>
+</ol>
+<h2 id="%E8%AE%BF%E9%97%AE%E6%96%87%E6%A1%A3">访问文档</h2>
+<p>启动成功后，在浏览器中访问：</p>
+<ul>
+<li>本地地址：<a href="http://127.0.0.1:2333"  target="_blank">http://127.0.0.1:2333</a></li>
+<li>或者：<a href="http://localhost:2333"  target="_blank">http://localhost:2333</a></li>
+</ul>
+<p>!!! tip &quot;小贴士&quot;<br />
+    首次启动可能需要几分钟时间安装依赖包，请耐心等待。</p>
+<h2 id="%E6%96%87%E6%A1%A3%E7%BB%93%E6%9E%84">文档结构</h2>
+
+<pre class="language-none"><code class="language-none">my_site/
+├── site_config.json    # 网站主配置文件
+├── docs/               # 文档目录
+│   ├── guide/         # 项目指南
+│   │   ├── config.json
+│   │   ├── sidebar.yaml
+│   │   └── *.md
+│   └── modules/       # 模块文档
+│       ├── config.json
+│       ├── sidebar.yaml
+│       └── *.md
+├── static/            # 静态资源
+└── out/               # 构建输出目录
+</code></pre>
+<h2 id="%E7%BC%96%E8%BE%91%E6%96%87%E6%A1%A3">编辑文档</h2>
+<ol>
+<li><strong>添加新文档</strong>：在对应目录下创建 <code>.md</code> 文件</li>
+<li><strong>修改导航</strong>：编辑 <code>sidebar.yaml</code> 文件</li>
+<li><strong>更新配置</strong>：修改 <code>config.json</code> 文件</li>
+<li><strong>重新构建</strong>：运行 <code>teedoc build</code> 命令</li>
+</ol>
+<h2 id="%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">常见问题</h2>
+<h3 id="%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5">启动失败</h3>
+<p><strong>问题</strong>：提示 Python 未找到<br />
+<strong>解决</strong>：确保已安装 Python 3.7+ 并添加到系统 PATH</p>
+<p><strong>问题</strong>：端口被占用<br />
+<strong>解决</strong>：修改 <code>site_config.json</code> 中的端口配置</p>
+<h3 id="%E6%9E%84%E5%BB%BA%E9%94%99%E8%AF%AF">构建错误</h3>
+<p><strong>问题</strong>：Markdown 语法错误<br />
+<strong>解决</strong>：检查 <code>.md</code> 文件的语法，特别是代码块和表格</p>
+<p><strong>问题</strong>：配置文件错误<br />
+<strong>解决</strong>：检查 <code>config.json</code> 和 <code>sidebar.yaml</code> 的 JSON/YAML 语法</p>
+<h2 id="%E6%9B%B4%E5%A4%9A%E5%8A%9F%E8%83%BD">更多功能</h2>
+<ul>
+<li><strong>搜索功能</strong>：支持全文搜索</li>
+<li><strong>主题切换</strong>：支持暗色/亮色主题</li>
+<li><strong>多语言</strong>：支持中英文切换</li>
+<li><strong>响应式设计</strong>：适配移动设备</li>
+</ul>
+<h2 id="%E5%8F%82%E8%80%83%E8%B5%84%E6%BA%90">参考资源</h2>
+<ul>
+<li><a href="https://teedoc.github.io/"  target="_blank">TeeDoc 官方文档</a></li>
+<li><a href="https://www.markdownguide.org/"  target="_blank">Markdown 语法参考</a></li>
+<li><a href="https://github.com/OpenEarable"  target="_blank">OpenEarable 项目主页</a></li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/lhfdoc.github.io/embedded_dev/openearable/deployment.html">
+                            <span class="icon"></span>
+                            <span class="label">🚀 部署指南</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/lhfdoc.github.io/embedded_dev/openearable/battery-module.html">
+                            <span class="label">🔋 电源管理模块</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关资源</a><ul><li><a target="_blank" href="https://www.nordicsemi.com/">Nordic官网</a></li>
+<li><a target="_blank" href="https://zephyrproject.org/">Zephyr项目</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/lhfdoc.github.io/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/search/search_main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/custom.js"></script>
+    
+</body>
+
+</html>

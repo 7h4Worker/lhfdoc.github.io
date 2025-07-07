@@ -1,0 +1,99 @@
+items:
+  - label: 嵌入式开发
+    file: README.md
+    translate: false
+  - label: 🎧 OpenEarable 2.0
+    items:
+      - label: 项目入门
+        file: openearable/README.md
+        translate: false
+      - label: 📋 项目概述
+        file: openearable/project-overview.md
+        translate: false
+      - label: 🏗️ 系统架构
+        file: openearable/architecture.md
+        translate: false
+      - label: 🚀 部署指南
+        file: openearable/deployment.md
+        translate: false
+      - label: 📖 teedoc使用指南
+        file: openearable/teedoc-guide.md
+        translate: false
+      - label: 核心功能模块
+        items:
+          - label: 🔋 电源管理模块
+            file: openearable/battery-module.md
+            translate: false
+          - label: 🎵 音频处理模块
+            file: openearable/audio-module.md
+            translate: false
+          - label: 📡 传感器管理模块
+            file: openearable/sensor-module.md
+            translate: false
+          - label: 📶 蓝牙通信模块
+            file: openearable/bluetooth-module.md
+            translate: false
+          - label: 💾 数据存储模块
+            file: openearable/storage-module.md
+            translate: false
+          - label: 🔧 硬件驱动模块
+            file: openearable/drivers-module.md
+            translate: false
+      - label: 辅助功能模块
+        items:
+          - label: 🎮 按键处理模块
+            file: openearable/buttons-module.md
+            translate: false
+          - label: 📊 数据解析模块
+            file: openearable/parseinfo-module.md
+            translate: false
+          - label: 🔌 I2C通信模块
+            file: openearable/wire-module.md
+            translate: false
+          - label: 🛠️ 系统工具模块
+            file: openearable/utils-module.md
+            translate: false
+  - label: 💻 硬件平台
+    items:
+      - label: Nordic nRF系列
+        file: hardware_platforms/nordic.md
+        translate: false
+      - label: ESP32系列  
+        file: hardware_platforms/esp32.md
+        translate: false
+      - label: STM32系列
+        file: hardware_platforms/stm32.md
+        translate: false
+  - label: ⚙️ 实时操作系统
+    items:
+      - label: Zephyr RTOS
+        file: rtos/zephyr.md
+        translate: false
+      - label: FreeRTOS
+        file: rtos/freertos.md
+        translate: false
+      - label: RT-Thread
+        file: rtos/rtthread.md
+        translate: false
+  - label: 🔗 通信协议
+    items:
+      - label: 蓝牙协议
+        file: protocols/bluetooth.md
+        translate: false
+      - label: WiFi协议
+        file: protocols/wifi.md
+        translate: false
+      - label: LoRa/LoRaWAN
+        file: protocols/lora.md
+        translate: false
+  - label: 🛠️ 开发工具
+    items:
+      - label: IDE环境
+        file: tools/ide.md
+        translate: false
+      - label: 调试工具
+        file: tools/debug.md
+        translate: false
+      - label: 仿真平台
+        file: tools/simulation.md
+        translate: false

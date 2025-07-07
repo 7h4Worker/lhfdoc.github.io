@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="脑机接口, BCI, 范式, 神经信号">
+    
+    
+    <meta name="description" content="脑机接口系统中的各种信号获取和处理范式研究">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/search/style.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>脑机接口范式 - 7h4Worker</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/lhfdoc.github.io/">
+                
+                
+                    <h2>脑机接口范式</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active with_link"><a href="/lhfdoc.github.io/bci_paradigms/index.html"><span class="label">脑机接口范式</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">📈 事件相关电位</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_paradigms/no_translate.html?ref=erp/p300.html&from=/bci_paradigms/erp/p300.html"><span class="label">P300范式</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_paradigms/no_translate.html?ref=erp/n170.html&from=/bci_paradigms/erp/n170.html"><span class="label">N170范式</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🌊 稳态视觉诱发电位</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_paradigms/no_translate.html?ref=ssvep/basics.html&from=/bci_paradigms/ssvep/basics.html"><span class="label">SSVEP基础</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_paradigms/no_translate.html?ref=ssvep/frequency.html&from=/bci_paradigms/ssvep/frequency.html"><span class="label">频率编码</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">💭 运动想象</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_paradigms/no_translate.html?ref=motor_imagery/basics.html&from=/bci_paradigms/motor_imagery/basics.html"><span class="label">MI基础理论</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_paradigms/no_translate.html?ref=motor_imagery/features.html&from=/bci_paradigms/motor_imagery/features.html"><span class="label">特征提取</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🎵 听觉脑机接口</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_paradigms/no_translate.html?ref=auditory/p300.html&from=/bci_paradigms/auditory/p300.html"><span class="label">听觉P300</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_paradigms/no_translate.html?ref=auditory/assr.html&from=/bci_paradigms/auditory/assr.html"><span class="label">听觉稳态响应</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>脑机接口范式</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h1 id="%F0%9F%A7%A0-%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E8%8C%83%E5%BC%8F">🧠 脑机接口范式</h1>
+<p>探索不同的脑机接口范式，研究神经信号的获取、处理和应用方法。</p>
+<h2 id="%F0%9F%93%8A-%E4%B8%BB%E8%A6%81%E8%8C%83%E5%BC%8F%E7%B1%BB%E5%9E%8B">📊 主要范式类型</h2>
+<h3 id="%F0%9F%93%88-%E4%BA%8B%E4%BB%B6%E7%9B%B8%E5%85%B3%E7%94%B5%E4%BD%8D-%28ERP%29">📈 事件相关电位 (ERP)</h3>
+<ul>
+<li><strong>P300范式</strong> - 认知神经科学中的经典范式</li>
+<li><strong>N170范式</strong> - 面部识别相关电位</li>
+<li><strong>错误相关电位</strong> - 错误监测和纠正机制</li>
+</ul>
+<h3 id="%F0%9F%8C%8A-%E7%A8%B3%E6%80%81%E8%A7%86%E8%A7%89%E8%AF%B1%E5%8F%91%E7%94%B5%E4%BD%8D-%28SSVEP%29">🌊 稳态视觉诱发电位 (SSVEP)</h3>
+<ul>
+<li><strong>频率标签</strong> - 不同频率的视觉刺激</li>
+<li><strong>相位编码</strong> - 基于相位信息的编码方式</li>
+<li><strong>空间编码</strong> - 利用空间位置的编码方法</li>
+</ul>
+<h3 id="%F0%9F%92%AD-%E8%BF%90%E5%8A%A8%E6%83%B3%E8%B1%A1-%28MI%29">💭 运动想象 (MI)</h3>
+<ul>
+<li><strong>单侧运动想象</strong> - 左右手运动想象</li>
+<li><strong>多类运动想象</strong> - 手、脚、舌头等多部位</li>
+<li><strong>运动执行vs想象</strong> - 实际运动与想象运动的差异</li>
+</ul>
+<h3 id="%F0%9F%8E%B5-%E5%90%AC%E8%A7%89%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3">🎵 听觉脑机接口</h3>
+<ul>
+<li><strong>听觉P300</strong> - 基于听觉刺激的P300范式</li>
+<li><strong>听觉稳态响应</strong> - 听觉系统的稳态反应</li>
+<li><strong>语音解码</strong> - 从脑信号中解码语音意图</li>
+</ul>
+<hr />
+<div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 20px; border-radius: 10px; margin-top: 30px;">
+    <h3 style="color: white; margin-top: 0;">🎯 研究方向</h3>
+    <p>• <strong>信号质量提升</strong> - 提高脑信号的信噪比和稳定性</p>
+    <p>• <strong>范式优化</strong> - 设计更高效的刺激和交互范式</p>
+    <p>• <strong>多模态融合</strong> - 结合多种神经信号提高性能</p>
+    <p>• <strong>自适应系统</strong> - 根据用户状态动态调整系统参数</p>
+</div>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/lhfdoc.github.io/bci_paradigms/no_translate.html?ref=erp/p300.html&from=/bci_paradigms/erp/p300.html">
+                            <span class="label">P300范式</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">Generated by teedoc</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/lhfdoc.github.io/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/search/search_main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/custom.js"></script>
+    
+</body>
+
+</html>

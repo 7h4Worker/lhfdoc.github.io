@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="边缘计算, AI, 机器学习, 嵌入式, TinyML">
+    
+    
+    <meta name="description" content="边缘设备上的人工智能算法和应用研究">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/search/style.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>边缘AI - 7h4Worker</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/lhfdoc.github.io/">
+                
+                
+                    <h2>边缘AI</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active with_link"><a href="/lhfdoc.github.io/edge_ai/index.html"><span class="label">边缘AI</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">🔬 核心技术</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/edge_ai/no_translate.html?ref=core/compression.html&from=/edge_ai/core/compression.html"><span class="label">模型压缩</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/edge_ai/no_translate.html?ref=core/optimization.html&from=/edge_ai/core/optimization.html"><span class="label">推理优化</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/edge_ai/no_translate.html?ref=core/acceleration.html&from=/edge_ai/core/acceleration.html"><span class="label">硬件加速</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🛠️ 开发框架</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/edge_ai/no_translate.html?ref=frameworks/mobile.html&from=/edge_ai/frameworks/mobile.html"><span class="label">移动端框架</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/edge_ai/no_translate.html?ref=frameworks/embedded.html&from=/edge_ai/frameworks/embedded.html"><span class="label">嵌入式框架</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/edge_ai/no_translate.html?ref=frameworks/cloud_edge.html&from=/edge_ai/frameworks/cloud_edge.html"><span class="label">云边协同</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🎯 应用场景</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/edge_ai/no_translate.html?ref=applications/cv.html&from=/edge_ai/applications/cv.html"><span class="label">计算机视觉</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/edge_ai/no_translate.html?ref=applications/speech.html&from=/edge_ai/applications/speech.html"><span class="label">语音处理</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/edge_ai/no_translate.html?ref=applications/sensors.html&from=/edge_ai/applications/sensors.html"><span class="label">传感器融合</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>边缘AI</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h1 id="%F0%9F%A4%96-%E8%BE%B9%E7%BC%98AI">🤖 边缘AI</h1>
+<p>研究在资源受限的边缘设备上部署和优化人工智能算法的技术。</p>
+<h2 id="%F0%9F%94%AC-%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF">🔬 核心技术</h2>
+<h3 id="%F0%9F%A7%A0-%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9">🧠 模型压缩</h3>
+<ul>
+<li><strong>量化技术</strong> - 8bit、16bit精度优化</li>
+<li><strong>剪枝算法</strong> - 结构化和非结构化剪枝</li>
+<li><strong>知识蒸馏</strong> - 教师-学生网络训练</li>
+<li><strong>神经架构搜索</strong> - 自动设计轻量化网络</li>
+</ul>
+<h3 id="%E2%9A%A1-%E6%8E%A8%E7%90%86%E4%BC%98%E5%8C%96">⚡ 推理优化</h3>
+<ul>
+<li><strong>运算符融合</strong> - 减少内存访问开销</li>
+<li><strong>图优化</strong> - 计算图的结构优化</li>
+<li><strong>内存管理</strong> - 高效的内存分配策略</li>
+<li><strong>并行计算</strong> - 多核和SIMD优化</li>
+</ul>
+<h2 id="%F0%9F%9B%A0%EF%B8%8F-%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6">🛠️ 开发框架</h2>
+<h3 id="%F0%9F%93%B1-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%A1%86%E6%9E%B6">📱 移动端框架</h3>
+<ul>
+<li><strong>TensorFlow Lite</strong> - 轻量级推理引擎</li>
+<li><strong>ONNX Runtime</strong> - 跨平台推理框架</li>
+<li><strong>Core ML</strong> - 苹果机器学习框架</li>
+<li><strong>NCNN</strong> - 高性能神经网络推理框架</li>
+</ul>
+<h3 id="%F0%9F%94%A7-%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A1%86%E6%9E%B6">🔧 嵌入式框架</h3>
+<ul>
+<li><strong>TinyML</strong> - 微控制器机器学习</li>
+<li><strong>EdgeTPU</strong> - Google边缘AI芯片</li>
+<li><strong>OpenVINO</strong> - Intel推理优化工具包</li>
+<li><strong>TensorRT</strong> - NVIDIA GPU推理加速</li>
+</ul>
+<h3 id="%F0%9F%8C%90-%E4%BA%91%E8%BE%B9%E5%8D%8F%E5%90%8C">🌐 云边协同</h3>
+<ul>
+<li><strong>联邦学习</strong> - 分布式模型训练</li>
+<li><strong>边缘-云协作</strong> - 计算任务分配</li>
+<li><strong>模型更新</strong> - 在线模型升级机制</li>
+<li><strong>数据同步</strong> - 边缘设备数据管理</li>
+</ul>
+<h2 id="%F0%9F%8E%AF-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">🎯 应用场景</h2>
+<h3 id="%F0%9F%91%81%EF%B8%8F-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89">👁️ 计算机视觉</h3>
+<ul>
+<li><strong>目标检测</strong> - 实时物体识别</li>
+<li><strong>人脸识别</strong> - 身份认证系统</li>
+<li><strong>动作识别</strong> - 行为分析和监控</li>
+<li><strong>图像分割</strong> - 场景理解和分析</li>
+</ul>
+<h3 id="%F0%9F%97%A3%EF%B8%8F-%E8%AF%AD%E9%9F%B3%E5%A4%84%E7%90%86">🗣️ 语音处理</h3>
+<ul>
+<li><strong>语音识别</strong> - 离线语音转文字</li>
+<li><strong>语音合成</strong> - 文字转语音技术</li>
+<li><strong>语音增强</strong> - 噪声抑制和回声消除</li>
+<li><strong>关键词检测</strong> - 唤醒词识别</li>
+</ul>
+<h3 id="%F0%9F%93%8A-%E4%BC%A0%E6%84%9F%E5%99%A8%E8%9E%8D%E5%90%88">📊 传感器融合</h3>
+<ul>
+<li><strong>异常检测</strong> - 设备故障诊断</li>
+<li><strong>预测维护</strong> - 设备状态预测</li>
+<li><strong>环境监测</strong> - 智能传感器网络</li>
+<li><strong>健康监测</strong> - 可穿戴设备应用</li>
+</ul>
+<hr />
+<div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 20px; border-radius: 10px; margin-top: 30px;">
+    <h3 style="color: white; margin-top: 0;">⚡ 技术挑战</h3>
+    <p>• <strong>资源约束</strong> - 内存、算力、功耗限制</p>
+    <p>• <strong>实时性要求</strong> - 低延迟推理需求</p>
+    <p>• <strong>精度平衡</strong> - 准确性与效率的权衡</p>
+    <p>• <strong>部署复杂性</strong> - 跨平台兼容性问题</p>
+</div>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/lhfdoc.github.io/edge_ai/no_translate.html?ref=core/compression.html&from=/edge_ai/core/compression.html">
+                            <span class="label">模型压缩</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">Generated by teedoc</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/lhfdoc.github.io/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/search/search_main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/custom.js"></script>
+    
+</body>
+
+</html>

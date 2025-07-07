@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="脑机接口, 算法, 机器学习, 信号处理">
+    
+    
+    <meta name="description" content="脑机接口系统中的信号处理和机器学习算法研究">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/search/style.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>脑机接口算法 - 7h4Worker</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/lhfdoc.github.io/">
+                
+                
+                    <h2>脑机接口算法</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active with_link"><a href="/lhfdoc.github.io/bci_algorithms/index.html"><span class="label">脑机接口算法</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">📊 信号处理算法</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_algorithms/no_translate.html?ref=signal_processing/preprocessing.html&from=/bci_algorithms/signal_processing/preprocessing.html"><span class="label">预处理</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_algorithms/no_translate.html?ref=signal_processing/features.html&from=/bci_algorithms/signal_processing/features.html"><span class="label">特征提取</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_algorithms/no_translate.html?ref=signal_processing/spatial.html&from=/bci_algorithms/signal_processing/spatial.html"><span class="label">空间滤波</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🧠 机器学习算法</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_algorithms/no_translate.html?ref=machine_learning/traditional.html&from=/bci_algorithms/machine_learning/traditional.html"><span class="label">传统方法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_algorithms/no_translate.html?ref=machine_learning/deep_learning.html&from=/bci_algorithms/machine_learning/deep_learning.html"><span class="label">深度学习</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_algorithms/no_translate.html?ref=machine_learning/online.html&from=/bci_algorithms/machine_learning/online.html"><span class="label">在线算法</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🎯 应用案例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_algorithms/no_translate.html?ref=applications/p300.html&from=/bci_algorithms/applications/p300.html"><span class="label">P300分类</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_algorithms/no_translate.html?ref=applications/motor_imagery.html&from=/bci_algorithms/applications/motor_imagery.html"><span class="label">运动想象</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_algorithms/no_translate.html?ref=applications/ssvep.html&from=/bci_algorithms/applications/ssvep.html"><span class="label">SSVEP检测</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>脑机接口算法</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h1 id="%F0%9F%A4%96-%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E7%AE%97%E6%B3%95">🤖 脑机接口算法</h1>
+<p>深入研究脑机接口系统中的各种算法，包括信号处理、特征提取和机器学习方法。</p>
+<h2 id="%F0%9F%93%8A-%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E7%AE%97%E6%B3%95">📊 信号处理算法</h2>
+<h3 id="%F0%9F%94%A7-%E9%A2%84%E5%A4%84%E7%90%86">🔧 预处理</h3>
+<ul>
+<li><strong>滤波算法</strong> - 带通、陷波、自适应滤波</li>
+<li><strong>伪影去除</strong> - ICA、PCA、回归方法</li>
+<li><strong>空间滤波</strong> - CAR、Laplacian、CSP</li>
+<li><strong>时频分析</strong> - 小波变换、希尔伯特变换</li>
+</ul>
+<h3 id="%F0%9F%8E%AF-%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96">🎯 特征提取</h3>
+<ul>
+<li><strong>时域特征</strong> - 统计特征、时间窗特征</li>
+<li><strong>频域特征</strong> - 功率谱密度、频带能量</li>
+<li><strong>时频特征</strong> - 时频图、小波系数</li>
+<li><strong>空间特征</strong> - 空间模式、电极组合</li>
+</ul>
+<h2 id="%F0%9F%A7%A0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95">🧠 机器学习算法</h2>
+<h3 id="%F0%9F%93%88-%E4%BC%A0%E7%BB%9F%E6%96%B9%E6%B3%95">📈 传统方法</h3>
+<ul>
+<li><strong>线性分类器</strong> - LDA、SVM、逻辑回归</li>
+<li><strong>非线性方法</strong> - RBF网络、决策树</li>
+<li><strong>集成学习</strong> - 随机森林、AdaBoost</li>
+<li><strong>贝叶斯方法</strong> - 朴素贝叶斯、贝叶斯网络</li>
+</ul>
+<h3 id="%F0%9F%9A%80-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">🚀 深度学习</h3>
+<ul>
+<li><strong>卷积神经网络</strong> - CNN for EEG</li>
+<li><strong>循环神经网络</strong> - LSTM、GRU时序建模</li>
+<li><strong>注意力机制</strong> - Transformer架构</li>
+<li><strong>生成对抗网络</strong> - GAN数据增强</li>
+</ul>
+<h3 id="%F0%9F%8E%AF-%E5%9C%A8%E7%BA%BF%E7%AE%97%E6%B3%95">🎯 在线算法</h3>
+<ul>
+<li><strong>自适应算法</strong> - 在线学习、增量学习</li>
+<li><strong>实时解码</strong> - 流式处理、滑动窗口</li>
+<li><strong>校准算法</strong> - 用户适应、协方差偏移</li>
+<li><strong>反馈学习</strong> - 强化学习、闭环控制</li>
+</ul>
+<hr />
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 10px; margin-top: 30px;">
+    <h3 style="color: white; margin-top: 0;">🎯 算法优化方向</h3>
+    <p>• <strong>准确性提升</strong> - 提高分类和解码精度</p>
+    <p>• <strong>鲁棒性增强</strong> - 适应不同用户和环境</p>
+    <p>• <strong>实时性优化</strong> - 降低计算延迟和复杂度</p>
+    <p>• <strong>可解释性</strong> - 理解算法决策过程</p>
+</div>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/lhfdoc.github.io/bci_algorithms/no_translate.html?ref=signal_processing/preprocessing.html&from=/bci_algorithms/signal_processing/preprocessing.html">
+                            <span class="label">预处理</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">Generated by teedoc</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/lhfdoc.github.io/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/search/search_main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/custom.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+items:
+  - label: UI设计与开发
+    file: README.md
+    translate: false
+  - label: 🎏 设计理念
+    items:
+      - label: 设计原则
+        file: design/principles.md
+        translate: false
+      - label: 视觉设计
+        file: design/visual.md
+        translate: false
+      - label: 用户体验
+        file: design/ux.md
+        translate: false
+  - label: 💻 前端技术
+    items:
+      - label: Web开发
+        file: frontend/web.md
+        translate: false
+      - label: 移动开发
+        file: frontend/mobile.md
+        translate: false
+      - label: 交互技术
+        file: frontend/interaction.md
+        translate: false
+  - label: 🔧 开发工具
+    items:
+      - label: 设计工具
+        file: tools/design.md
+        translate: false
+      - label: 开发框架
+        file: tools/frameworks.md
+        translate: false
+      - label: 调试工具
+        file: tools/debug.md
+        translate: false

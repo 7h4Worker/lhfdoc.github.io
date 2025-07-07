@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/search/style.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>音频处理模块详细分析 - 7h4Worker</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/lhfdoc.github.io/">
+                
+                
+                    <h2>嵌入式开发</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/index.html"><span class="label">嵌入式开发</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">🎧 OpenEarable 2.0</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/index.html"><span class="label">项目入门</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/project-overview.html"><span class="label">📋 项目概述</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/architecture.html"><span class="label">🏗️ 系统架构</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/deployment.html"><span class="label">🚀 部署指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/teedoc-guide.html"><span class="label">📖 teedoc使用指南</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">核心功能模块</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/battery-module.html"><span class="label">🔋 电源管理模块</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/audio-module.html"><span class="label">🎵 音频处理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/sensor-module.html"><span class="label">📡 传感器管理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/bluetooth-module.html"><span class="label">📶 蓝牙通信模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/storage-module.html"><span class="label">💾 数据存储模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/drivers-module.html"><span class="label">🔧 硬件驱动模块</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">辅助功能模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/buttons-module.html"><span class="label">🎮 按键处理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/parseinfo-module.html"><span class="label">📊 数据解析模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/wire-module.html"><span class="label">🔌 I2C通信模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/utils-module.html"><span class="label">🛠️ 系统工具模块</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">💻 硬件平台</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/nordic.html&from=/embedded_dev/hardware_platforms/nordic.html"><span class="label">Nordic nRF系列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/esp32.html&from=/embedded_dev/hardware_platforms/esp32.html"><span class="label">ESP32系列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/stm32.html&from=/embedded_dev/hardware_platforms/stm32.html"><span class="label">STM32系列</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">⚙️ 实时操作系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/zephyr.html&from=/embedded_dev/rtos/zephyr.html"><span class="label">Zephyr RTOS</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/freertos.html&from=/embedded_dev/rtos/freertos.html"><span class="label">FreeRTOS</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/rtthread.html&from=/embedded_dev/rtos/rtthread.html"><span class="label">RT-Thread</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🔗 通信协议</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/bluetooth.html&from=/embedded_dev/protocols/bluetooth.html"><span class="label">蓝牙协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/wifi.html&from=/embedded_dev/protocols/wifi.html"><span class="label">WiFi协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/lora.html&from=/embedded_dev/protocols/lora.html"><span class="label">LoRa/LoRaWAN</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🛠️ 开发工具</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/ide.html&from=/embedded_dev/tools/ide.html"><span class="label">IDE环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/debug.html&from=/embedded_dev/tools/debug.html"><span class="label">调试工具</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/simulation.html&from=/embedded_dev/tools/simulation.html"><span class="label">仿真平台</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>音频处理模块详细分析</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2025-07-07">
+                                    2025-07-07
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="%E6%A8%A1%E5%9D%97%E6%A6%82%E8%BF%B0">模块概述</h2>
+<p>音频处理模块是OpenEarable 2.0的核心功能组件，负责完整的音频信号链处理，包括音频捕获、编解码、流控制、信号处理等功能。该模块基于nRF5340 Audio DK的成熟音频架构，支持LE Audio协议和高质量音频处理。</p>
+<h2 id="%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84">文件结构</h2>
+
+<pre class="language-none"><code class="language-none">src/audio/
+├── streamctrl.h/.c           # 音频流控制核心
+├── audio_datapath.h/.c       # 音频数据路径处理
+├── audio_system.h/.c         # 音频子系统管理
+├── le_audio_rx.h/.c          # LE Audio接收处理
+├── pdm_mic.h/.c              # PDM麦克风驱动
+├── sw_codec_select.h/.c      # 软件编解码器选择
+├── Equalizer.h/.cpp          # 音频均衡器
+├── sdlogger_wrapper.h/.cpp   # SD卡日志包装器
+├── CMakeLists.txt            # 构建配置
+├── Kconfig                   # 配置选项
+└── Kconfig.defaults          # 默认配置
+</code></pre>
+<h2 id="%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6%E5%88%86%E6%9E%90">核心组件分析</h2>
+<h3 id="1.-StreamCtrl---%E9%9F%B3%E9%A2%91%E6%B5%81%E6%8E%A7%E5%88%B6%E5%99%A8">1. StreamCtrl - 音频流控制器</h3>
+<p>StreamCtrl是音频流处理的核心控制组件，负责管理音频流的状态和数据传输。</p>
+<h4 id="%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD">主要功能</h4>
+<ul>
+<li><strong>流状态管理</strong>: 控制播放/暂停状态</li>
+<li><strong>数据传输</strong>: 处理音频数据的发送</li>
+<li><strong>同步控制</strong>: 确保音频数据的同步传输</li>
+</ul>
+<h4 id="%E6%8E%A5%E5%8F%A3%E5%AE%9A%E4%B9%89">接口定义</h4>
+
+<pre class="language-cpp"><code class="language-cpp">// 流状态枚举
+enum stream_state {
+    STATE_STREAMING,    // 正在流传输
+    STATE_PAUSED,       // 暂停状态
+};
+
+// 核心接口函数
+uint8_t stream_state_get(void);                        // 获取当前流状态
+void streamctrl_send(const void *data, size_t size, uint8_t num_ch); // 发送音频数据
+int streamctrl_start();                                 // 启动流控制
+</code></pre>
+<h4 id="%E5%AE%9E%E7%8E%B0%E7%89%B9%E7%82%B9">实现特点</h4>
+<ul>
+<li><strong>状态机管理</strong>: 使用状态机控制流传输状态</li>
+<li><strong>多声道支持</strong>: 支持单声道和立体声音频</li>
+<li><strong>缓冲管理</strong>: 智能的音频缓冲区管理</li>
+</ul>
+<h3 id="2.-Audio-Datapath---%E9%9F%B3%E9%A2%91%E6%95%B0%E6%8D%AE%E8%B7%AF%E5%BE%84">2. Audio Datapath - 音频数据路径</h3>
+<p>音频数据路径模块负责音频数据的完整处理流程，从输入到输出的所有处理环节。</p>
+<h4 id="%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD">主要功能</h4>
+<ul>
+<li><strong>音频同步</strong>: 基于时间戳的音频同步</li>
+<li><strong>格式转换</strong>: 音频格式和采样率转换</li>
+<li><strong>信号处理</strong>: 音频增强和降噪处理</li>
+<li><strong>测试音生成</strong>: 系统测试音频信号生成</li>
+</ul>
+<h4 id="%E6%A0%B8%E5%BF%83%E6%8E%A5%E5%8F%A3">核心接口</h4>
+
+<pre class="language-cpp"><code class="language-cpp">// 主要处理接口
+void audio_datapath_stream_out(const uint8_t *buf, size_t size, 
+                               uint32_t sdu_ref_us, bool bad_frame,
+                               uint32_t recv_frame_ts_us);
+
+// 系统控制接口
+int audio_datapath_start(struct data_fifo *fifo_rx);   // 启动数据路径
+int audio_datapath_stop(void);                         // 停止数据路径
+int audio_datapath_init(void);                         // 初始化数据路径
+
+// 音频增强功能
+int audio_datapath_tone_play(uint16_t freq, uint16_t dur_ms, float amplitude);
+void audio_datapath_tone_stop(void);                   // 停止测试音
+
+// 延迟控制
+int audio_datapath_pres_delay_us_set(uint32_t delay_us);
+void audio_datapath_pres_delay_us_get(uint32_t *delay_us);
+</code></pre>
+<h4 id="%E6%95%B0%E6%8D%AE%E6%B5%81%E6%9E%B6%E6%9E%84">数据流架构</h4>
+
+<pre class="language-none"><code class="language-none">[LE Audio RX] → [Decoder] → [Equalizer] → [I2S Output]
+                    ↓
+                [SD Logger] (可选)
+                    ↓
+                [Sensor Data] (可选)
+</code></pre>
+<h4 id="%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6">同步机制</h4>
+
+<pre class="language-cpp"><code class="language-cpp">// 时间戳同步处理
+void audio_datapath_stream_out(const uint8_t *buf, size_t size, 
+                               uint32_t sdu_ref_us, bool bad_frame,
+                               uint32_t recv_frame_ts_us) {
+    // 1. 解码音频数据
+    // 2. 计算播放时间戳
+    // 3. 应用呈现延迟
+    // 4. 同步到I2S输出
+    // 5. 记录到SD卡(可选)
+}
+</code></pre>
+<h3 id="3.-Audio-System---%E9%9F%B3%E9%A2%91%E5%AD%90%E7%B3%BB%E7%BB%9F">3. Audio System - 音频子系统</h3>
+<p>音频子系统提供高层次的音频管理接口，集成编解码器、音频处理和系统控制。</p>
+<h4 id="%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD">主要功能</h4>
+<ul>
+<li><strong>编解码管理</strong>: LC3编解码器控制</li>
+<li><strong>系统配置</strong>: 音频参数配置管理</li>
+<li><strong>测试功能</strong>: 内置测试音生成</li>
+<li><strong>性能优化</strong>: 音频处理性能优化</li>
+</ul>
+<h4 id="%E6%A0%B8%E5%BF%83%E6%8E%A5%E5%8F%A3">核心接口</h4>
+
+<pre class="language-cpp"><code class="language-cpp">// 系统控制
+void audio_system_start(void);                         // 启动音频系统
+void audio_system_stop(void);                          // 停止音频系统
+
+// 编码器控制
+void audio_system_encoder_start(void);                 // 启动编码器
+void audio_system_encoder_stop(void);                  // 停止编码器
+
+// 配置管理
+int audio_system_config_set(uint32_t encoder_sample_rate_hz, 
+                            uint32_t encoder_bitrate,
+                            uint32_t decoder_sample_rate_hz);
+
+// 解码处理
+int audio_system_decode(const void *encoded_data, size_t encoded_data_size, 
+                       bool bad_frame);
+
+// 测试功能
+int audio_system_encode_test_tone_set(uint32_t freq);
+int audio_system_encode_test_tone_step(void);
+
+// 缓冲管理
+int audio_system_fifo_rx_block_drop(void);
+</code></pre>
+<h4 id="%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0">配置参数</h4>
+
+<pre class="language-cpp"><code class="language-cpp">struct audio_config {
+    uint32_t sample_rate_hz;    // 采样率
+    uint32_t bitrate_bps;       // 比特率
+    uint8_t channels;           // 声道数
+    uint16_t frame_size_us;     // 帧长度(微秒)
+};
+</code></pre>
+<h3 id="4.-PDM-Microphone---PDM%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%A9%B1%E5%8A%A8">4. PDM Microphone - PDM麦克风驱动</h3>
+<p>PDM麦克风模块负责板载麦克风的音频捕获功能。</p>
+<h4 id="%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD">主要功能</h4>
+<ul>
+<li><strong>PDM信号采集</strong>: 脉冲密度调制信号采集</li>
+<li><strong>数字滤波</strong>: PDM到PCM转换和滤波</li>
+<li><strong>缓冲管理</strong>: 音频数据缓冲和队列管理</li>
+</ul>
+<h4 id="%E6%8E%A5%E5%8F%A3%E5%AE%9A%E4%B9%89">接口定义</h4>
+
+<pre class="language-cpp"><code class="language-cpp">// 麦克风控制
+void pdm_mic_start(void);                              // 启动麦克风
+void pdm_mic_stop(void);                               // 停止麦克风
+int pdm_mic_init(void);                                // 初始化麦克风
+
+// 数据路径
+int pdm_datapath_start(struct data_fifo *fifo_rx);     // 启动PDM数据路径
+</code></pre>
+<h4 id="PDM%E9%85%8D%E7%BD%AE">PDM配置</h4>
+
+<pre class="language-cpp"><code class="language-cpp">// PDM配置参数
+struct pdm_config {
+    uint32_t sample_rate;       // 采样率 (通常16kHz)
+    uint8_t gain_l;             // 左声道增益
+    uint8_t gain_r;             // 右声道增益
+    uint8_t clock_freq;         // PDM时钟频率
+};
+</code></pre>
+<h3 id="5.-Equalizer---%E9%9F%B3%E9%A2%91%E5%9D%87%E8%A1%A1%E5%99%A8">5. Equalizer - 音频均衡器</h3>
+<p>音频均衡器提供实时音频增强和频率响应调整功能。</p>
+<h4 id="%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD">主要功能</h4>
+<ul>
+<li><strong>频率响应调整</strong>: 多频段均衡处理</li>
+<li><strong>实时处理</strong>: 低延迟音频处理</li>
+<li><strong>参数可调</strong>: 支持动态参数调整</li>
+</ul>
+<h4 id="%E6%8E%A5%E5%8F%A3%E5%AE%9A%E4%B9%89">接口定义</h4>
+
+<pre class="language-cpp"><code class="language-cpp">#define EQ_ORDER 9              // 均衡器阶数
+
+// 均衡器控制
+void reset_eq();                // 重置均衡器
+void equalize(int16_t *data, int length);  // 音频均衡处理
+</code></pre>
+<h4 id="%E5%9D%87%E8%A1%A1%E5%99%A8%E7%BB%93%E6%9E%84">均衡器结构</h4>
+
+<pre class="language-cpp"><code class="language-cpp">// 9阶数字滤波器实现
+struct eq_filter {
+    float coeffs[EQ_ORDER];     // 滤波器系数
+    float delays[EQ_ORDER];     // 延迟缓冲
+    float gain;                 // 增益参数
+};
+</code></pre>
+<h3 id="6.-LE-Audio-RX---LE-Audio%E6%8E%A5%E6%94%B6%E5%A4%84%E7%90%86">6. LE Audio RX - LE Audio接收处理</h3>
+<p>LE Audio接收模块负责蓝牙LE Audio协议的音频数据接收和处理。</p>
+<h4 id="%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD">主要功能</h4>
+<ul>
+<li><strong>ISO数据接收</strong>: 接收ISO音频数据包</li>
+<li><strong>错误处理</strong>: 丢包检测和错误恢复</li>
+<li><strong>同步维护</strong>: 音频流同步维护</li>
+<li><strong>质量监控</strong>: 音频质量监控和统计</li>
+</ul>
+<h4 id="%E6%95%B0%E6%8D%AE%E5%8C%85%E5%A4%84%E7%90%86">数据包处理</h4>
+
+<pre class="language-cpp"><code class="language-cpp">// LE Audio数据包结构
+struct le_audio_packet {
+    uint32_t timestamp;         // 时间戳
+    uint16_t seq_num;           // 序列号
+    uint8_t *payload;           // 音频负载
+    size_t payload_len;         // 负载长度
+    bool crc_ok;               // CRC校验状态
+};
+</code></pre>
+<h3 id="7.-Software-Codec-Select---%E8%BD%AF%E4%BB%B6%E7%BC%96%E8%A7%A3%E7%A0%81%E5%99%A8%E9%80%89%E6%8B%A9">7. Software Codec Select - 软件编解码器选择</h3>
+<p>软件编解码器选择模块提供LC3等音频编解码器的集成接口。</p>
+<h4 id="%E6%94%AF%E6%8C%81%E7%9A%84%E7%BC%96%E8%A7%A3%E7%A0%81%E5%99%A8">支持的编解码器</h4>
+<ul>
+<li><strong>LC3</strong>: LE Audio标准编解码器</li>
+<li><strong>SBC</strong>: 经典蓝牙编解码器(兼容性)</li>
+<li><strong>Raw PCM</strong>: 未压缩音频格式</li>
+</ul>
+<h4 id="%E7%BC%96%E8%A7%A3%E7%A0%81%E5%99%A8%E6%8E%A5%E5%8F%A3">编解码器接口</h4>
+
+<pre class="language-cpp"><code class="language-cpp">// 编解码器操作接口
+struct codec_interface {
+    int (*init)(void);
+    int (*encode)(const int16_t *input, uint8_t *output, size_t *output_size);
+    int (*decode)(const uint8_t *input, size_t input_size, int16_t *output);
+    void (*deinit)(void);
+};
+</code></pre>
+<h2 id="%E9%9F%B3%E9%A2%91%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B">音频处理流程</h2>
+<h3 id="%E6%92%AD%E6%94%BE%E6%B5%81%E7%A8%8B">播放流程</h3>
+
+<pre class="language-none"><code class="language-none">[LE Audio RX] → [LC3 Decode] → [Equalizer] → [I2S DAC] → [扬声器]
+                      ↓
+                [SD Logger] (可选录制)
+</code></pre>
+<h3 id="%E5%BD%95%E9%9F%B3%E6%B5%81%E7%A8%8B">录音流程</h3>
+
+<pre class="language-none"><code class="language-none">[PDM Mic] → [Filter] → [LC3 Encode] → [LE Audio TX] → [蓝牙传输]
+               ↓
+          [SD Logger] (可选录制)
+</code></pre>
+<h3 id="%E5%8F%8C%E5%90%91%E9%80%9A%E4%BF%A1%E6%B5%81%E7%A8%8B">双向通信流程</h3>
+
+<pre class="language-none"><code class="language-none">接收: [LE Audio RX] → [Decode] → [Mix] → [I2S Output]
+                                   ↑
+发送: [PDM Mic] → [Encode] → [LE Audio TX]
+</code></pre>
+<h2 id="%E5%90%8C%E6%AD%A5%E5%92%8C%E6%97%B6%E5%BA%8F">同步和时序</h2>
+<h3 id="%E9%9F%B3%E9%A2%91%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6">音频同步机制</h3>
+
+<pre class="language-cpp"><code class="language-cpp">// 时间戳同步处理
+void audio_sync_process(uint32_t sdu_ref_us, uint32_t recv_ts_us) {
+    // 1. 计算传输延迟
+    uint32_t transport_delay = recv_ts_us - sdu_ref_us;
+
+    // 2. 应用呈现延迟
+    uint32_t presentation_delay = get_presentation_delay();
+
+    // 3. 计算播放时间
+    uint32_t play_time = sdu_ref_us + presentation_delay;
+
+    // 4. 同步到I2S播放
+    schedule_i2s_playback(play_time);
+}
+</code></pre>
+<h3 id="%E7%BC%93%E5%86%B2%E7%AE%A1%E7%90%86">缓冲管理</h3>
+
+<pre class="language-cpp"><code class="language-cpp">// 自适应缓冲管理
+void adaptive_buffer_management() {
+    // 监控缓冲区水位
+    size_t buffer_level = get_buffer_level();
+
+    if (buffer_level &lt; LOW_THRESHOLD) {
+        // 缓冲区过低，增加延迟
+        increase_buffer_size();
+    } else if (buffer_level &gt; HIGH_THRESHOLD) {
+        // 缓冲区过高，减少延迟
+        decrease_buffer_size();
+    }
+}
+</code></pre>
+<h2 id="%E9%9F%B3%E9%A2%91%E8%B4%A8%E9%87%8F%E4%BC%98%E5%8C%96">音频质量优化</h2>
+<h3 id="1.-%E9%99%8D%E5%99%AA%E5%A4%84%E7%90%86">1. 降噪处理</h3>
+
+<pre class="language-cpp"><code class="language-cpp">// 数字降噪算法
+void noise_reduction(int16_t *audio_data, size_t length) {
+    // 实现自适应滤波降噪
+    for (size_t i = 0; i &lt; length; i++) {
+        audio_data[i] = apply_noise_filter(audio_data[i]);
+    }
+}
+</code></pre>
+<h3 id="2.-%E5%8A%A8%E6%80%81%E8%8C%83%E5%9B%B4%E6%8E%A7%E5%88%B6">2. 动态范围控制</h3>
+
+<pre class="language-cpp"><code class="language-cpp">// 自动增益控制
+void agc_process(int16_t *audio_data, size_t length) {
+    // 计算音频能量
+    float energy = calculate_energy(audio_data, length);
+
+    // 调整增益
+    float gain = calculate_optimal_gain(energy);
+    apply_gain(audio_data, length, gain);
+}
+</code></pre>
+<h3 id="3.-%E5%9B%9E%E5%A3%B0%E6%B6%88%E9%99%A4">3. 回声消除</h3>
+
+<pre class="language-cpp"><code class="language-cpp">// 声学回声消除(AEC)
+void echo_cancellation(int16_t *mic_data, int16_t *speaker_data, 
+                      int16_t *output, size_t length) {
+    // 实现自适应回声消除算法
+    adaptive_filter_process(mic_data, speaker_data, output, length);
+}
+</code></pre>
+<h2 id="%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0">配置参数</h2>
+<h3 id="%E9%9F%B3%E9%A2%91%E9%85%8D%E7%BD%AE%E9%80%89%E9%A1%B9">音频配置选项</h3>
+
+<pre class="language-kconfig"><code class="language-kconfig"># 采样率配置
+CONFIG_AUDIO_SAMPLE_RATE_48000=y
+CONFIG_AUDIO_SAMPLE_RATE_16000=n
+
+# 编解码器配置
+CONFIG_AUDIO_CODEC_LC3=y
+CONFIG_AUDIO_CODEC_SBC=n
+
+# 音频增强
+CONFIG_AUDIO_EQUALIZER=y
+CONFIG_AUDIO_NOISE_REDUCTION=y
+CONFIG_AUDIO_AGC=y
+
+# 缓冲配置
+CONFIG_AUDIO_BUFFER_SIZE=4096
+CONFIG_AUDIO_BUFFER_COUNT=4
+</code></pre>
+<h3 id="%E6%80%A7%E8%83%BD%E5%8F%82%E6%95%B0">性能参数</h3>
+
+<pre class="language-cpp"><code class="language-cpp">// 音频性能参数
+#define AUDIO_FRAME_SIZE_US     10000   // 10ms帧长
+#define AUDIO_SAMPLE_RATE_HZ    48000   // 48kHz采样率
+#define AUDIO_CHANNELS          2       // 立体声
+#define AUDIO_BITS_PER_SAMPLE   16      // 16位采样深度
+
+// 延迟参数
+#define PRESENTATION_DELAY_US   40000   // 40ms呈现延迟
+#define PROCESSING_DELAY_US     5000    // 5ms处理延迟
+</code></pre>
+<h2 id="%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E5%92%8C%E6%81%A2%E5%A4%8D">错误处理和恢复</h2>
+<h3 id="%E9%9F%B3%E9%A2%91%E4%B8%AD%E6%96%AD%E5%A4%84%E7%90%86">音频中断处理</h3>
+
+<pre class="language-cpp"><code class="language-cpp">void audio_error_handler(audio_error_t error) {
+    switch (error) {
+        case AUDIO_UNDERRUN:
+            // 缓冲区下溢处理
+            refill_audio_buffer();
+            break;
+
+        case AUDIO_OVERRUN:
+            // 缓冲区上溢处理
+            drop_old_audio_frames();
+            break;
+
+        case AUDIO_SYNC_LOST:
+            // 同步丢失处理
+            reinitialize_sync();
+            break;
+
+        default:
+            // 通用错误处理
+            restart_audio_system();
+            break;
+    }
+}
+</code></pre>
+<h3 id="%E8%B4%A8%E9%87%8F%E7%9B%91%E6%8E%A7">质量监控</h3>
+
+<pre class="language-cpp"><code class="language-cpp">// 音频质量统计
+struct audio_quality_stats {
+    uint32_t packets_received;      // 接收包数
+    uint32_t packets_lost;          // 丢包数
+    uint32_t late_packets;          // 延迟包数
+    float average_latency_ms;       // 平均延迟
+    float jitter_ms;                // 抖动
+};
+</code></pre>
+<h2 id="%E5%8A%9F%E8%80%97%E4%BC%98%E5%8C%96">功耗优化</h2>
+<h3 id="%E5%8A%A8%E6%80%81%E5%8A%9F%E8%80%97%E7%AE%A1%E7%90%86">动态功耗管理</h3>
+
+<pre class="language-cpp"><code class="language-cpp">void audio_power_management() {
+    if (audio_stream_active()) {
+        // 流传输活跃时，保持高性能模式
+        set_cpu_frequency(HIGH_FREQ);
+        enable_audio_pll();
+    } else {
+        // 流传输空闲时，降低功耗
+        set_cpu_frequency(LOW_FREQ);
+        disable_audio_pll();
+    }
+}
+</code></pre>
+<h2 id="%E6%80%BB%E7%BB%93">总结</h2>
+<p>音频处理模块是OpenEarable 2.0的核心功能组件，具有以下特点：</p>
+<ol>
+<li><strong>完整的音频链</strong>: 从音频捕获到播放的完整处理链</li>
+<li><strong>LE Audio支持</strong>: 完整支持蓝牙LE Audio协议栈</li>
+<li><strong>高质量处理</strong>: 集成均衡器、降噪等音频增强功能</li>
+<li><strong>低延迟设计</strong>: 优化的缓冲和同步机制</li>
+<li><strong>模块化架构</strong>: 各功能模块独立，易于维护和扩展</li>
+<li><strong>实时性能</strong>: 满足实时音频处理要求</li>
+<li><strong>功耗优化</strong>: 智能的功耗管理策略</li>
+</ol>
+<p>该模块为OpenEarable 2.0提供了专业级的音频处理能力，支持高质量的音乐播放、通话和音频采集功能。</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/lhfdoc.github.io/embedded_dev/openearable/battery-module.html">
+                            <span class="icon"></span>
+                            <span class="label">🔋 电源管理模块</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/lhfdoc.github.io/embedded_dev/openearable/sensor-module.html">
+                            <span class="label">📡 传感器管理模块</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关资源</a><ul><li><a target="_blank" href="https://www.nordicsemi.com/">Nordic官网</a></li>
+<li><a target="_blank" href="https://zephyrproject.org/">Zephyr项目</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/lhfdoc.github.io/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/search/search_main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/custom.js"></script>
+    
+</body>
+
+</html>

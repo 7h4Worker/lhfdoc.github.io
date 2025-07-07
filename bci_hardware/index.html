@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="脑机接口, 硬件, 电极, 放大器, ADC">
+    
+    
+    <meta name="description" content="脑机接口系统硬件设计和实现相关技术文档">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/search/style.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>脑机接口硬件 - 7h4Worker</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/lhfdoc.github.io/">
+                
+                
+                    <h2>脑机接口硬件</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active with_link"><a href="/lhfdoc.github.io/bci_hardware/index.html"><span class="label">脑机接口硬件</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">📡 信号采集</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_hardware/no_translate.html?ref=acquisition/electrodes.html&from=/bci_hardware/acquisition/electrodes.html"><span class="label">电极系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_hardware/no_translate.html?ref=acquisition/amplifiers.html&from=/bci_hardware/acquisition/amplifiers.html"><span class="label">放大器设计</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_hardware/no_translate.html?ref=acquisition/adc.html&from=/bci_hardware/acquisition/adc.html"><span class="label">ADC选择</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🖥️ 数据处理</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_hardware/no_translate.html?ref=processing/mcu.html&from=/bci_hardware/processing/mcu.html"><span class="label">嵌入式处理器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_hardware/no_translate.html?ref=processing/dsp.html&from=/bci_hardware/processing/dsp.html"><span class="label">DSP芯片</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_hardware/no_translate.html?ref=processing/fpga.html&from=/bci_hardware/processing/fpga.html"><span class="label">FPGA实现</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🔋 电源管理</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_hardware/no_translate.html?ref=power/low_power.html&from=/bci_hardware/power/low_power.html"><span class="label">低功耗设计</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_hardware/no_translate.html?ref=power/battery.html&from=/bci_hardware/power/battery.html"><span class="label">电池技术</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">📶 无线通信</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_hardware/no_translate.html?ref=wireless/bluetooth.html&from=/bci_hardware/wireless/bluetooth.html"><span class="label">蓝牙传输</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/bci_hardware/no_translate.html?ref=wireless/wifi.html&from=/bci_hardware/wireless/wifi.html"><span class="label">WiFi连接</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>脑机接口硬件</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h1 id="%E2%9A%A1-%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E7%A1%AC%E4%BB%B6">⚡ 脑机接口硬件</h1>
+<p>研究脑机接口系统的硬件设计、信号采集和处理技术。</p>
+<h2 id="%F0%9F%94%8C-%E7%A1%AC%E4%BB%B6%E7%BB%84%E4%BB%B6">🔌 硬件组件</h2>
+<h3 id="%F0%9F%93%A1-%E4%BF%A1%E5%8F%B7%E9%87%87%E9%9B%86">📡 信号采集</h3>
+<ul>
+<li><strong>电极系统</strong> - 干电极、湿电极、有源电极设计</li>
+<li><strong>放大器设计</strong> - 生物信号前端放大电路</li>
+<li><strong>ADC选择</strong> - 高精度模数转换器</li>
+<li><strong>滤波电路</strong> - 模拟和数字滤波器设计</li>
+</ul>
+<h3 id="%F0%9F%96%A5%EF%B8%8F-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86">🖥️ 数据处理</h3>
+<ul>
+<li><strong>嵌入式处理器</strong> - ARM Cortex-M系列MCU</li>
+<li><strong>DSP芯片</strong> - 专用数字信号处理器</li>
+<li><strong>FPGA实现</strong> - 并行信号处理架构</li>
+<li><strong>GPU加速</strong> - 深度学习模型硬件加速</li>
+</ul>
+<h3 id="%F0%9F%94%8B-%E7%94%B5%E6%BA%90%E7%AE%A1%E7%90%86">🔋 电源管理</h3>
+<ul>
+<li><strong>低功耗设计</strong> - 可穿戴设备电源优化</li>
+<li><strong>电池技术</strong> - 锂电池、超级电容器</li>
+<li><strong>无线充电</strong> - 感应式充电技术</li>
+<li><strong>电源监控</strong> - 智能电源管理系统</li>
+</ul>
+<h3 id="%F0%9F%93%B6-%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1">📶 无线通信</h3>
+<ul>
+<li><strong>蓝牙传输</strong> - BLE和经典蓝牙</li>
+<li><strong>WiFi连接</strong> - 高速数据传输</li>
+<li><strong>专用协议</strong> - 低延迟实时传输</li>
+<li><strong>数据同步</strong> - 多设备时间同步</li>
+</ul>
+<hr />
+<div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; padding: 20px; border-radius: 10px; margin-top: 30px;">
+    <h3 style="color: white; margin-top: 0;">🛠️ 设计要点</h3>
+    <p>• <strong>信号质量</strong> - 最大化信噪比，最小化伪影干扰</p>
+    <p>• <strong>实时性能</strong> - 保证低延迟的数据采集和处理</p>
+    <p>• <strong>便携性</strong> - 小型化、轻量化设计</p>
+    <p>• <strong>可靠性</strong> - 长期稳定的信号采集性能</p>
+</div>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/lhfdoc.github.io/bci_hardware/no_translate.html?ref=acquisition/electrodes.html&from=/bci_hardware/acquisition/electrodes.html">
+                            <span class="label">电极系统</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">Generated by teedoc</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/lhfdoc.github.io/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/search/search_main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/custom.js"></script>
+    
+</body>
+
+</html>

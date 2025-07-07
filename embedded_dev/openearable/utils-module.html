@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/search/style.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>OpenEarable 2.0 - 系统工具模块 (Utils Module) - 7h4Worker</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/lhfdoc.github.io/">
+                
+                
+                    <h2>嵌入式开发</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/index.html"><span class="label">嵌入式开发</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">🎧 OpenEarable 2.0</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/index.html"><span class="label">项目入门</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/project-overview.html"><span class="label">📋 项目概述</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/architecture.html"><span class="label">🏗️ 系统架构</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/deployment.html"><span class="label">🚀 部署指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/teedoc-guide.html"><span class="label">📖 teedoc使用指南</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">核心功能模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/battery-module.html"><span class="label">🔋 电源管理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/audio-module.html"><span class="label">🎵 音频处理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/sensor-module.html"><span class="label">📡 传感器管理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/bluetooth-module.html"><span class="label">📶 蓝牙通信模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/storage-module.html"><span class="label">💾 数据存储模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/drivers-module.html"><span class="label">🔧 硬件驱动模块</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">辅助功能模块</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/buttons-module.html"><span class="label">🎮 按键处理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/parseinfo-module.html"><span class="label">📊 数据解析模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/wire-module.html"><span class="label">🔌 I2C通信模块</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/utils-module.html"><span class="label">🛠️ 系统工具模块</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">💻 硬件平台</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/nordic.html&from=/embedded_dev/hardware_platforms/nordic.html"><span class="label">Nordic nRF系列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/esp32.html&from=/embedded_dev/hardware_platforms/esp32.html"><span class="label">ESP32系列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/stm32.html&from=/embedded_dev/hardware_platforms/stm32.html"><span class="label">STM32系列</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">⚙️ 实时操作系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/zephyr.html&from=/embedded_dev/rtos/zephyr.html"><span class="label">Zephyr RTOS</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/freertos.html&from=/embedded_dev/rtos/freertos.html"><span class="label">FreeRTOS</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/rtthread.html&from=/embedded_dev/rtos/rtthread.html"><span class="label">RT-Thread</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🔗 通信协议</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/bluetooth.html&from=/embedded_dev/protocols/bluetooth.html"><span class="label">蓝牙协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/wifi.html&from=/embedded_dev/protocols/wifi.html"><span class="label">WiFi协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/lora.html&from=/embedded_dev/protocols/lora.html"><span class="label">LoRa/LoRaWAN</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🛠️ 开发工具</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/ide.html&from=/embedded_dev/tools/ide.html"><span class="label">IDE环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/debug.html&from=/embedded_dev/tools/debug.html"><span class="label">调试工具</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/simulation.html&from=/embedded_dev/tools/simulation.html"><span class="label">仿真平台</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>OpenEarable 2.0 - 系统工具模块 (Utils Module)</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2025-07-07">
+                                    2025-07-07
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="%E6%A6%82%E8%BF%B0">概述</h2>
+<p>系统工具模块提供了OpenEarable设备的各种辅助功能和系统级工具，包括状态指示、板级支持、版本管理、错误处理等核心系统功能。该模块为整个系统提供了基础的支撑服务。</p>
+<h2 id="%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6">核心组件</h2>
+<h3 id="1.-%E7%8A%B6%E6%80%81%E6%8C%87%E7%A4%BA%E5%99%A8-%28%3Ccode%3EStateIndicator.h/cpp%3C/code%3E%29">1. 状态指示器 (<code>StateIndicator.h/cpp</code>)</h3>
+<p>负责通过LED显示设备的各种状态：</p>
+<h4 id="%E6%A0%B8%E5%BF%83%E7%B1%BB%E5%AE%9A%E4%B9%89">核心类定义</h4>
+
+<pre class="language-cpp"><code class="language-cpp">class StateIndicator {
+public:
+    void init(struct earable_state state);
+    void set_state(struct earable_state state);
+    void set_charging_state(enum charging_state state);
+    void set_pairing_state(enum pairing_state state);
+    void set_indication_mode(enum led_mode state);
+    void set_custom_color(const RGBColor &amp;color);
+
+private:
+    earable_state _state;
+    RGBColor color;
+};
+
+extern StateIndicator state_indicator;
+</code></pre>
+<h4 id="%E9%A2%84%E5%AE%9A%E4%B9%89%E9%A2%9C%E8%89%B2">预定义颜色</h4>
+
+<pre class="language-cpp"><code class="language-cpp">static const RGBColor LED_OFF = {0, 0, 0};
+static const RGBColor LED_RED = {32, 0, 0};
+static const RGBColor LED_GREEN = {0, 32, 0};
+static const RGBColor LED_BLUE = {0, 0, 32};
+static const RGBColor LED_YELLOW = {16, 16, 0};
+static const RGBColor LED_ORANGE = {24, 8, 0};
+static const RGBColor LED_CYAN = {0, 16, 16};
+static const RGBColor LED_MAGENTA = {16, 0, 16};
+</code></pre>
+<h4 id="%E7%8A%B6%E6%80%81%E6%98%A0%E5%B0%84">状态映射</h4>
+<ul>
+<li><strong>充电状态</strong>: 红色（充电中）、绿色（充电完成）</li>
+<li><strong>配对状态</strong>: 蓝色（配对模式）、青色（已连接）</li>
+<li><strong>系统状态</strong>: 不同颜色组合表示各种工作模式</li>
+<li><strong>自定义模式</strong>: 支持用户定义颜色</li>
+</ul>
+<h3 id="2.-%E6%9D%BF%E7%BA%A7%E6%94%AF%E6%8C%81">2. 板级支持</h3>
+<h4 id="nRF5340%E5%BC%80%E5%8F%91%E6%9D%BF%E6%94%AF%E6%8C%81-%28%3Ccode%3Enrf5340_audio_dk.h/c%3C/code%3E%29">nRF5340开发板支持 (<code>nrf5340_audio_dk.h/c</code>)</h4>
+
+<pre class="language-cpp"><code class="language-cpp">// 板级初始化
+int board_init(void);
+
+// 硬件配置
+void configure_board_peripherals(void);
+
+// 电源管理
+void board_power_management_init(void);
+</code></pre>
+<h4 id="OpenEarable%E6%9D%BF%E7%BA%A7%E6%94%AF%E6%8C%81-%28%3Ccode%3Eopenearable.h/c%3C/code%3E%29">OpenEarable板级支持 (<code>openearable.h/c</code>)</h4>
+
+<pre class="language-cpp"><code class="language-cpp">// OpenEarable特定初始化
+int openearable_board_init(void);
+
+// 硬件抽象层
+void openearable_configure_peripherals(void);
+
+// 板级电源控制
+void openearable_power_control(void);
+</code></pre>
+<h3 id="3.-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86-%28%3Ccode%3Eboard_version.h/c%3C/code%3E%29">3. 版本管理 (<code>board_version.h/c</code>)</h3>
+<p>提供硬件版本检测和管理：</p>
+
+<pre class="language-cpp"><code class="language-cpp">// 版本检测
+enum board_version {
+    BOARD_VERSION_UNKNOWN,
+    BOARD_VERSION_1_0,
+    BOARD_VERSION_2_0,
+    BOARD_VERSION_2_1
+};
+
+// 核心接口
+enum board_version get_board_version(void);
+const char* get_board_version_string(void);
+bool is_board_version_supported(enum board_version version);
+</code></pre>
+<h4 id="%E7%89%88%E6%9C%AC%E6%A3%80%E6%B5%8B%E6%9C%BA%E5%88%B6">版本检测机制</h4>
+<ul>
+<li>通过GPIO引脚状态检测硬件版本</li>
+<li>支持多种版本的兼容性处理</li>
+<li>版本信息用于功能适配</li>
+</ul>
+<h3 id="4.-%E9%80%9A%E9%81%93%E5%88%86%E9%85%8D-%28%3Ccode%3Echannel_assignment.h/c%3C/code%3E%29">4. 通道分配 (<code>channel_assignment.h/c</code>)</h3>
+<p>管理音频通道和数据流的分配：</p>
+
+<pre class="language-cpp"><code class="language-cpp">// 通道分配结构
+struct channel_assignment {
+    uint8_t left_channel;
+    uint8_t right_channel;
+    uint8_t stream_id;
+};
+
+// 核心接口
+int channel_assignment_init(void);
+int assign_audio_channel(uint8_t stream_id, uint8_t* left, uint8_t* right);
+int release_audio_channel(uint8_t stream_id);
+</code></pre>
+<h3 id="5.-%E5%9B%BA%E4%BB%B6%E4%BF%A1%E6%81%AF-%28%3Ccode%3Efw_info_app.h%3C/code%3E%29">5. 固件信息 (<code>fw_info_app.h</code>)</h3>
+<p>提供固件版本和构建信息：</p>
+
+<pre class="language-cpp"><code class="language-cpp">// 固件信息结构
+struct fw_info {
+    uint32_t version_major;
+    uint32_t version_minor;
+    uint32_t version_patch;
+    char build_date[16];
+    char build_time[16];
+    char git_commit[8];
+};
+
+// 接口函数
+const struct fw_info* get_fw_info(void);
+void print_fw_info(void);
+</code></pre>
+<h3 id="6.-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86-%28%3Ccode%3Eerror_handler.c%3C/code%3E%29">6. 错误处理 (<code>error_handler.c</code>)</h3>
+<p>系统错误处理和恢复机制：</p>
+
+<pre class="language-cpp"><code class="language-cpp">// 错误类型定义
+enum error_type {
+    ERROR_HARDWARE,
+    ERROR_MEMORY,
+    ERROR_COMMUNICATION,
+    ERROR_CONFIGURATION,
+    ERROR_TIMEOUT
+};
+
+// 错误处理函数
+void handle_error(enum error_type type, int error_code);
+void register_error_callback(void (*callback)(enum error_type, int));
+void system_recovery(void);
+</code></pre>
+<h3 id="7.-UICR%E7%AE%A1%E7%90%86-%28%3Ccode%3Euicr.h/c%3C/code%3E%29">7. UICR管理 (<code>uicr.h/c</code>)</h3>
+<p>用户信息配置寄存器(UICR)管理：</p>
+
+<pre class="language-cpp"><code class="language-cpp">// UICR配置
+struct uicr_config {
+    uint32_t device_id;
+    uint32_t hw_version;
+    uint32_t production_date;
+    uint8_t calibration_data[32];
+};
+
+// 接口函数
+int uicr_init(void);
+int uicr_read_config(struct uicr_config* config);
+int uicr_write_config(const struct uicr_config* config);
+bool uicr_is_programmed(void);
+</code></pre>
+<h2 id="%E5%AE%8F%E5%AE%9A%E4%B9%89%E5%B7%A5%E5%85%B7-%28%3Ccode%3Emacros/%3C/code%3E%29">宏定义工具 (<code>macros/</code>)</h2>
+<h3 id="%E9%80%9A%E7%94%A8%E5%AE%8F%E5%AE%9A%E4%B9%89">通用宏定义</h3>
+
+<pre class="language-cpp"><code class="language-cpp">// 位操作宏
+#define BIT_SET(val, bit)    ((val) |= (1U &lt;&lt; (bit)))
+#define BIT_CLEAR(val, bit)  ((val) &amp;= ~(1U &lt;&lt; (bit)))
+#define BIT_CHECK(val, bit)  (((val) &gt;&gt; (bit)) &amp; 1U)
+
+// 数组操作宏
+#define ARRAY_SIZE(arr)      (sizeof(arr) / sizeof((arr)[0]))
+
+// 数学宏
+#define MIN(a, b)           (((a) &lt; (b)) ? (a) : (b))
+#define MAX(a, b)           (((a) &gt; (b)) ? (a) : (b))
+#define CLAMP(val, min, max) MIN(MAX(val, min), max)
+</code></pre>
+<h3 id="%E8%B0%83%E8%AF%95%E5%AE%8F">调试宏</h3>
+
+<pre class="language-cpp"><code class="language-cpp">#ifdef CONFIG_DEBUG
+#define DEBUG_PRINT(fmt, ...) printk(fmt, ##__VA_ARGS__)
+#define ASSERT(expr) do { \
+    if (!(expr)) { \
+        printk(&quot;ASSERT failed: %s:%d\n&quot;, __FILE__, __LINE__); \
+        k_panic(); \
+    } \
+} while(0)
+#else
+#define DEBUG_PRINT(fmt, ...)
+#define ASSERT(expr)
+#endif
+</code></pre>
+<h2 id="%E7%8A%B6%E6%80%81%E6%8C%87%E7%A4%BA%E9%80%BB%E8%BE%91">状态指示逻辑</h2>
+<h3 id="1.-%E5%90%AF%E5%8A%A8%E7%8A%B6%E6%80%81%E6%8C%87%E7%A4%BA">1. 启动状态指示</h3>
+
+<pre class="language-cpp"><code class="language-cpp">void indicate_boot_status(void) {
+    // 白色闪烁 - 系统启动
+    state_indicator.set_custom_color({16, 16, 16});
+    k_sleep(K_MSEC(500));
+    state_indicator.set_custom_color(LED_OFF);
+}
+</code></pre>
+<h3 id="2.-%E7%94%B5%E6%B1%A0%E7%8A%B6%E6%80%81%E6%8C%87%E7%A4%BA">2. 电池状态指示</h3>
+
+<pre class="language-cpp"><code class="language-cpp">void indicate_battery_status(uint8_t level) {
+    if (level &gt; 80) {
+        state_indicator.set_custom_color(LED_GREEN);    // 电量充足
+    } else if (level &gt; 30) {
+        state_indicator.set_custom_color(LED_YELLOW);   // 电量中等
+    } else if (level &gt; 10) {
+        state_indicator.set_custom_color(LED_ORANGE);   // 电量较低
+    } else {
+        state_indicator.set_custom_color(LED_RED);      // 电量极低
+    }
+}
+</code></pre>
+<h3 id="3.-%E8%BF%9E%E6%8E%A5%E7%8A%B6%E6%80%81%E6%8C%87%E7%A4%BA">3. 连接状态指示</h3>
+
+<pre class="language-cpp"><code class="language-cpp">void indicate_connection_status(bool connected) {
+    if (connected) {
+        state_indicator.set_custom_color(LED_CYAN);     // 已连接
+    } else {
+        state_indicator.set_custom_color(LED_BLUE);     // 等待连接
+    }
+}
+</code></pre>
+<h2 id="%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96%E6%B5%81%E7%A8%8B">系统初始化流程</h2>
+<h3 id="1.-%E6%9D%BF%E7%BA%A7%E5%88%9D%E5%A7%8B%E5%8C%96">1. 板级初始化</h3>
+
+<pre class="language-cpp"><code class="language-cpp">int system_init(void) {
+    int ret;
+
+    // 1. 基础板级初始化
+    ret = board_init();
+    if (ret) return ret;
+
+    // 2. 版本检测
+    enum board_version version = get_board_version();
+    LOG_INF(&quot;Board version: %s&quot;, get_board_version_string());
+
+    // 3. UICR初始化
+    ret = uicr_init();
+    if (ret) return ret;
+
+    // 4. 通道分配初始化
+    ret = channel_assignment_init();
+    if (ret) return ret;
+
+    // 5. 状态指示器初始化
+    struct earable_state initial_state = {0};
+    state_indicator.init(initial_state);
+
+    return 0;
+}
+</code></pre>
+<h3 id="2.-%E5%A4%96%E8%AE%BE%E9%85%8D%E7%BD%AE">2. 外设配置</h3>
+
+<pre class="language-cpp"><code class="language-cpp">void configure_peripherals(void) {
+    // GPIO配置
+    configure_gpio_pins();
+
+    // I2C配置
+    configure_i2c_interfaces();
+
+    // SPI配置
+    configure_spi_interfaces();
+
+    // 电源域配置
+    configure_power_domains();
+}
+</code></pre>
+<h2 id="%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5">错误处理策略</h2>
+<h3 id="1.-%E9%94%99%E8%AF%AF%E5%88%86%E7%B1%BB%E5%A4%84%E7%90%86">1. 错误分类处理</h3>
+
+<pre class="language-cpp"><code class="language-cpp">void handle_error(enum error_type type, int error_code) {
+    switch (type) {
+        case ERROR_HARDWARE:
+            // 硬件错误 - 记录并尝试重启硬件
+            LOG_ERR(&quot;Hardware error: %d&quot;, error_code);
+            reset_hardware_peripherals();
+            break;
+
+        case ERROR_MEMORY:
+            // 内存错误 - 清理内存并重启
+            LOG_ERR(&quot;Memory error: %d&quot;, error_code);
+            cleanup_memory();
+            system_restart();
+            break;
+
+        case ERROR_COMMUNICATION:
+            // 通信错误 - 重置通信接口
+            LOG_ERR(&quot;Communication error: %d&quot;, error_code);
+            reset_communication_interfaces();
+            break;
+
+        default:
+            LOG_ERR(&quot;Unknown error type: %d, code: %d&quot;, type, error_code);
+            break;
+    }
+}
+</code></pre>
+<h3 id="2.-%E7%B3%BB%E7%BB%9F%E6%81%A2%E5%A4%8D%E6%9C%BA%E5%88%B6">2. 系统恢复机制</h3>
+
+<pre class="language-cpp"><code class="language-cpp">void system_recovery(void) {
+    // 1. 保存关键状态
+    save_critical_state();
+
+    // 2. 重置外设
+    reset_all_peripherals();
+
+    // 3. 重新初始化
+    system_init();
+
+    // 4. 恢复关键状态
+    restore_critical_state();
+
+    // 5. 状态指示
+    indicate_recovery_complete();
+}
+</code></pre>
+<h2 id="%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86">配置管理</h2>
+<h3 id="Kconfig-%E9%80%89%E9%A1%B9">Kconfig 选项</h3>
+
+<pre class="language-kconfig"><code class="language-kconfig"># 调试选项
+config UTILS_DEBUG
+    bool &quot;Enable utils module debug&quot;
+    default n
+
+# 状态指示选项
+config STATE_INDICATOR_BRIGHTNESS
+    int &quot;LED brightness level (0-255)&quot;
+    range 0 255
+    default 32
+
+# 版本检测选项
+config BOARD_VERSION_DETECTION
+    bool &quot;Enable board version detection&quot;
+    default y
+
+# 错误恢复选项
+config ERROR_RECOVERY_ENABLED
+    bool &quot;Enable automatic error recovery&quot;
+    default y
+</code></pre>
+<h3 id="%E8%AE%BE%E5%A4%87%E6%A0%91%E9%85%8D%E7%BD%AE">设备树配置</h3>
+
+<pre class="language-dts"><code class="language-dts">/ {
+    board_config {
+        compatible = &quot;openearable,board-config&quot;;
+        version-gpio = &lt;&amp;gpio0 28 GPIO_ACTIVE_HIGH&gt;;
+        status-led = &lt;&amp;led_rgb&gt;;
+    };
+};
+</code></pre>
+<h2 id="%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7">性能监控</h2>
+<h3 id="%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E7%9B%91%E6%8E%A7">系统资源监控</h3>
+
+<pre class="language-cpp"><code class="language-cpp">struct system_stats {
+    uint32_t cpu_usage;
+    uint32_t memory_usage;
+    uint32_t stack_usage;
+    uint32_t heap_free;
+};
+
+void get_system_stats(struct system_stats* stats) {
+    // CPU使用率
+    stats-&gt;cpu_usage = get_cpu_usage_percent();
+
+    // 内存使用情况
+    stats-&gt;memory_usage = get_memory_usage_bytes();
+    stats-&gt;heap_free = get_heap_free_bytes();
+
+    // 栈使用情况
+    stats-&gt;stack_usage = get_stack_usage_bytes();
+}
+</code></pre>
+<h3 id="%E8%BF%90%E8%A1%8C%E6%97%B6%E7%BB%9F%E8%AE%A1">运行时统计</h3>
+
+<pre class="language-cpp"><code class="language-cpp">void print_runtime_stats(void) {
+    struct system_stats stats;
+    get_system_stats(&amp;stats);
+
+    LOG_INF(&quot;System Stats:&quot;);
+    LOG_INF(&quot;  CPU Usage: %u%%&quot;, stats.cpu_usage);
+    LOG_INF(&quot;  Memory Usage: %u bytes&quot;, stats.memory_usage);
+    LOG_INF(&quot;  Heap Free: %u bytes&quot;, stats.heap_free);
+    LOG_INF(&quot;  Stack Usage: %u bytes&quot;, stats.stack_usage);
+}
+</code></pre>
+<h2 id="%E8%B0%83%E8%AF%95%E5%92%8C%E8%AF%8A%E6%96%AD">调试和诊断</h2>
+<h3 id="%E8%AF%8A%E6%96%AD%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86">诊断信息收集</h3>
+
+<pre class="language-cpp"><code class="language-cpp">void collect_diagnostic_info(void) {
+    // 固件信息
+    const struct fw_info* fw = get_fw_info();
+    LOG_INF(&quot;Firmware: v%u.%u.%u&quot;, fw-&gt;version_major, 
+            fw-&gt;version_minor, fw-&gt;version_patch);
+
+    // 硬件信息
+    LOG_INF(&quot;Board: %s&quot;, get_board_version_string());
+
+    // 系统状态
+    print_runtime_stats();
+
+    // UICR信息
+    struct uicr_config uicr;
+    if (uicr_read_config(&amp;uicr) == 0) {
+        LOG_INF(&quot;Device ID: 0x%08x&quot;, uicr.device_id);
+        LOG_INF(&quot;HW Version: 0x%08x&quot;, uicr.hw_version);
+    }
+}
+</code></pre>
+<h2 id="%E6%80%BB%E7%BB%93">总结</h2>
+<p>系统工具模块提供了完整的系统支撑功能，具有以下特点：</p>
+<ol>
+<li><strong>全面性</strong>: 涵盖状态指示、版本管理、错误处理等各个方面</li>
+<li><strong>可靠性</strong>: 完善的错误处理和系统恢复机制</li>
+<li><strong>可维护性</strong>: 清晰的版本管理和诊断信息</li>
+<li><strong>可配置性</strong>: 丰富的配置选项和板级适配</li>
+<li><strong>可观测性</strong>: 完整的状态指示和运行时监控</li>
+</ol>
+<p>该模块为OpenEarable设备提供了稳定可靠的系统基础设施，确保设备的正常运行和可维护性。</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/lhfdoc.github.io/embedded_dev/openearable/wire-module.html">
+                            <span class="icon"></span>
+                            <span class="label">🔌 I2C通信模块</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/nordic.html&from=/embedded_dev/hardware_platforms/nordic.html">
+                            <span class="label">Nordic nRF系列</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关资源</a><ul><li><a target="_blank" href="https://www.nordicsemi.com/">Nordic官网</a></li>
+<li><a target="_blank" href="https://zephyrproject.org/">Zephyr项目</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/lhfdoc.github.io/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/search/search_main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/custom.js"></script>
+    
+</body>
+
+</html>

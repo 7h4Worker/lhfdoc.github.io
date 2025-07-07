@@ -1,0 +1,32 @@
+{
+    "locale": "zh_CN",
+    "name": "嵌入式开发",
+    "navbar": {
+        "title": "嵌入式开发",
+        "logo": {
+            "alt": "嵌入式开发",
+            "url": ""
+        },
+        "home_url": "/",
+        "items": []
+    },
+    "footer": {
+        "top": [
+            {
+                "label": "相关资源",
+                "items": [
+                    {
+                        "label": "Nordic官网",
+                        "url": "https://www.nordicsemi.com/",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "Zephyr项目",
+                        "url": "https://zephyrproject.org/",
+                        "target": "_blank"
+                    }
+                ]
+            }
+        ]
+    }
+}

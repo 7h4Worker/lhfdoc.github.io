@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/lhfdoc.github.io/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/search/style.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/lhfdoc.github.io/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>OpenEarable 2.0 - I2C通信模块 (Wire Module) - 7h4Worker</title>
+    
+    <script type="text/javascript">js_vars = {}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/lhfdoc.github.io/">
+                
+                
+                    <h2>嵌入式开发</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/index.html"><span class="label">嵌入式开发</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">🎧 OpenEarable 2.0</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/index.html"><span class="label">项目入门</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/project-overview.html"><span class="label">📋 项目概述</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/architecture.html"><span class="label">🏗️ 系统架构</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/deployment.html"><span class="label">🚀 部署指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/teedoc-guide.html"><span class="label">📖 teedoc使用指南</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">核心功能模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/battery-module.html"><span class="label">🔋 电源管理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/audio-module.html"><span class="label">🎵 音频处理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/sensor-module.html"><span class="label">📡 传感器管理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/bluetooth-module.html"><span class="label">📶 蓝牙通信模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/storage-module.html"><span class="label">💾 数据存储模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/drivers-module.html"><span class="label">🔧 硬件驱动模块</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">辅助功能模块</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/buttons-module.html"><span class="label">🎮 按键处理模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/parseinfo-module.html"><span class="label">📊 数据解析模块</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/wire-module.html"><span class="label">🔌 I2C通信模块</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/openearable/utils-module.html"><span class="label">🛠️ 系统工具模块</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">💻 硬件平台</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/nordic.html&from=/embedded_dev/hardware_platforms/nordic.html"><span class="label">Nordic nRF系列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/esp32.html&from=/embedded_dev/hardware_platforms/esp32.html"><span class="label">ESP32系列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=hardware_platforms/stm32.html&from=/embedded_dev/hardware_platforms/stm32.html"><span class="label">STM32系列</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">⚙️ 实时操作系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/zephyr.html&from=/embedded_dev/rtos/zephyr.html"><span class="label">Zephyr RTOS</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/freertos.html&from=/embedded_dev/rtos/freertos.html"><span class="label">FreeRTOS</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=rtos/rtthread.html&from=/embedded_dev/rtos/rtthread.html"><span class="label">RT-Thread</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🔗 通信协议</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/bluetooth.html&from=/embedded_dev/protocols/bluetooth.html"><span class="label">蓝牙协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/wifi.html&from=/embedded_dev/protocols/wifi.html"><span class="label">WiFi协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=protocols/lora.html&from=/embedded_dev/protocols/lora.html"><span class="label">LoRa/LoRaWAN</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">🛠️ 开发工具</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/ide.html&from=/embedded_dev/tools/ide.html"><span class="label">IDE环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/debug.html&from=/embedded_dev/tools/debug.html"><span class="label">调试工具</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/lhfdoc.github.io/embedded_dev/no_translate.html?ref=tools/simulation.html&from=/embedded_dev/tools/simulation.html"><span class="label">仿真平台</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>OpenEarable 2.0 - I2C通信模块 (Wire Module)</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2025-07-07">
+                                    2025-07-07
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="%E6%A6%82%E8%BF%B0">概述</h2>
+<p>I2C通信模块为OpenEarable设备提供了Arduino风格的I2C通信接口，基于Zephyr RTOS的I2C驱动实现。该模块封装了底层的I2C硬件操作，为上层驱动和应用提供了简洁易用的通信接口。</p>
+<h2 id="%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6">核心组件</h2>
+<h3 id="1.-Arduino%E9%A3%8E%E6%A0%BCI2C%E6%8E%A5%E5%8F%A3-%28%3Ccode%3EWire.h/cpp%3C/code%3E%29">1. Arduino风格I2C接口 (<code>Wire.h/cpp</code>)</h3>
+<p>提供与Arduino Wire库兼容的I2C接口：</p>
+<h4 id="%E6%A0%B8%E5%BF%83%E7%B1%BB%E5%AE%9A%E4%B9%89">核心类定义</h4>
+
+<pre class="language-cpp"><code class="language-cpp">class MbedI2C {
+public:
+    MbedI2C(const struct device * master);
+
+    // 基本操作
+    virtual void begin(uint32_t speed = I2C_SPEED_FAST);
+    virtual void end();
+    virtual void setClock(uint32_t freq);
+
+    // 传输操作
+    virtual void beginTransmission(uint8_t address);
+    virtual uint8_t endTransmission(bool stopBit = true);
+    virtual size_t requestFrom(uint8_t address, size_t len, bool stopBit = true);
+
+    // 数据操作
+    virtual size_t write(uint8_t data);
+    virtual size_t write(const uint8_t* data, int len);
+    virtual int read();
+    virtual int peek();
+    virtual void flush();
+    virtual int available();
+
+    // 回调设置
+    virtual void onReceive(void(*)(int));
+    virtual void onRequest(void(*)(void));
+
+    // 资源管理
+    void aquire();
+    void release();
+
+private:
+    const struct device * master;
+    struct k_mutex mutex;
+
+    // 缓冲区
+    char buf[BUFFER_RX_SIZE];
+    RingBufferN&lt;BUFFER_RX_SIZE&gt; rxBuffer;
+    uint8_t txBuffer[BUFFER_TX_SIZE];
+    uint32_t usedTxBuffer;
+
+    // 底层操作
+    int master_read(int address, const char * buf, const uint32_t len, bool no_stop);
+    int master_write(int address, const char * buf, const uint32_t len, bool no_stop);
+    int i2c_message(uint8_t read_write, int address, const char * buf, 
+                   const uint32_t len, bool no_stop);
+};
+</code></pre>
+<h4 id="%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0">配置参数</h4>
+
+<pre class="language-cpp"><code class="language-cpp">#define BUFFER_TX_SIZE 256    // 发送缓冲区大小
+#define BUFFER_RX_SIZE 512    // 接收缓冲区大小
+</code></pre>
+<h3 id="2.-%E5%9F%BA%E7%A1%80I2C%E7%AE%A1%E7%90%86-%28%3Ccode%3ETWIM.h/cpp%3C/code%3E%29">2. 基础I2C管理 (<code>TWIM.h/cpp</code>)</h3>
+<p>提供更底层的I2C管理接口：</p>
+
+<pre class="language-cpp"><code class="language-cpp">class TWIM {
+public:
+    TWIM(const struct device * master);
+    virtual void begin();
+    virtual void end();
+    virtual void setClock(uint32_t speed = I2C_SPEED_FAST);
+
+    void aquire();
+    void release();
+
+    const struct device * master;
+
+private:
+    struct k_mutex mutex;
+};
+</code></pre>
+<h3 id="3.-%E7%8E%AF%E5%BD%A2%E7%BC%93%E5%86%B2%E5%8C%BA-%28%3Ccode%3ERingBuffer.h%3C/code%3E%29">3. 环形缓冲区 (<code>RingBuffer.h</code>)</h3>
+<p>用于I2C数据缓冲的环形缓冲区实现：</p>
+
+<pre class="language-cpp"><code class="language-cpp">template&lt;int N&gt;
+class RingBufferN {
+private:
+    uint8_t _buffer[N];
+    volatile int _head;
+    volatile int _tail;
+
+public:
+    void store_char(uint8_t c);
+    int read_char();
+    int available();
+    int peek();
+    void clear();
+    bool isFull();
+};
+</code></pre>
+<h2 id="%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6">工作机制</h2>
+<h3 id="1.-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%B5%81%E7%A8%8B">1. 初始化流程</h3>
+
+<pre class="language-cpp"><code class="language-cpp">void MbedI2C::begin(uint32_t speed) {
+    // 1. 检查设备就绪状态
+    if (!device_is_ready(master)) {
+        LOG_ERR(&quot;I2C device not ready&quot;);
+        return;
+    }
+
+    // 2. 配置I2C时钟速度
+    setClock(speed);
+
+    // 3. 初始化缓冲区
+    rxBuffer.clear();
+    usedTxBuffer = 0;
+
+    // 4. 初始化互斥锁
+    k_mutex_init(&amp;mutex);
+}
+</code></pre>
+<h3 id="2.-%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E6%B5%81%E7%A8%8B">2. 数据传输流程</h3>
+<h4 id="%E4%B8%BB%E6%9C%BA%E5%86%99%E6%93%8D%E4%BD%9C">主机写操作</h4>
+
+<pre class="language-cpp"><code class="language-cpp">void beginTransmission(uint8_t address) {
+    _address = address;
+    usedTxBuffer = 0;  // 清空发送缓冲区
+}
+
+size_t write(uint8_t data) {
+    if (usedTxBuffer &lt; BUFFER_TX_SIZE) {
+        txBuffer[usedTxBuffer++] = data;
+        return 1;
+    }
+    return 0;
+}
+
+uint8_t endTransmission(bool stopBit) {
+    int ret = master_write(_address, (const char*)txBuffer, usedTxBuffer, !stopBit);
+    usedTxBuffer = 0;
+    return (ret == 0) ? 0 : 4;  // 0=成功, 4=其他错误
+}
+</code></pre>
+<h4 id="%E4%B8%BB%E6%9C%BA%E8%AF%BB%E6%93%8D%E4%BD%9C">主机读操作</h4>
+
+<pre class="language-cpp"><code class="language-cpp">size_t requestFrom(uint8_t address, size_t len, bool stopBit) {
+    char buffer[len];
+    int ret = master_read(address, buffer, len, !stopBit);
+
+    if (ret == 0) {
+        // 将数据存入环形缓冲区
+        for (size_t i = 0; i &lt; len; i++) {
+            rxBuffer.store_char(buffer[i]);
+        }
+        return len;
+    }
+    return 0;
+}
+
+int read() {
+    return rxBuffer.read_char();
+}
+</code></pre>
+<h3 id="3.-%E5%BA%95%E5%B1%82I2C%E6%93%8D%E4%BD%9C">3. 底层I2C操作</h3>
+
+<pre class="language-cpp"><code class="language-cpp">int i2c_message(uint8_t read_write, int address, const char * buf, 
+               const uint32_t len, bool no_stop) {
+    struct i2c_msg msg;
+
+    msg.buf = (uint8_t*)buf;
+    msg.len = len;
+    msg.flags = read_write;
+    if (no_stop) {
+        msg.flags |= I2C_MSG_STOP;
+    }
+
+    return i2c_transfer(master, &amp;msg, 1, address);
+}
+</code></pre>
+<h2 id="%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8">线程安全</h2>
+<h3 id="%E4%BA%92%E6%96%A5%E9%94%81%E4%BF%9D%E6%8A%A4">互斥锁保护</h3>
+
+<pre class="language-cpp"><code class="language-cpp">void aquire() {
+    k_mutex_lock(&amp;mutex, K_FOREVER);
+}
+
+void release() {
+    k_mutex_unlock(&amp;mutex);
+}
+</code></pre>
+<h3 id="%E5%85%B8%E5%9E%8B%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%BC%8F">典型使用模式</h3>
+
+<pre class="language-cpp"><code class="language-cpp">wire.aquire();
+wire.beginTransmission(device_address);
+wire.write(register_address);
+wire.write(data);
+wire.endTransmission();
+wire.release();
+</code></pre>
+<h2 id="%E7%BC%93%E5%86%B2%E5%8C%BA%E7%AE%A1%E7%90%86">缓冲区管理</h2>
+<h3 id="%E5%8F%91%E9%80%81%E7%BC%93%E5%86%B2%E5%8C%BA">发送缓冲区</h3>
+<ul>
+<li>固定大小256字节</li>
+<li>在 <code>beginTransmission</code> 时清空</li>
+<li>在 <code>endTransmission</code> 时发送</li>
+</ul>
+<h3 id="%E6%8E%A5%E6%94%B6%E7%BC%93%E5%86%B2%E5%8C%BA">接收缓冲区</h3>
+<ul>
+<li>使用环形缓冲区，大小512字节</li>
+<li>支持流式数据接收</li>
+<li>提供 <code>available()</code> 查询可读数据量</li>
+</ul>
+<h3 id="%E7%8E%AF%E5%BD%A2%E7%BC%93%E5%86%B2%E5%8C%BA%E6%93%8D%E4%BD%9C">环形缓冲区操作</h3>
+
+<pre class="language-cpp"><code class="language-cpp">template&lt;int N&gt;
+void RingBufferN&lt;N&gt;::store_char(uint8_t c) {
+    int next_head = (_head + 1) % N;
+    if (next_head != _tail) {
+        _buffer[_head] = c;
+        _head = next_head;
+    }
+}
+
+template&lt;int N&gt;
+int RingBufferN&lt;N&gt;::read_char() {
+    if (_head == _tail) {
+        return -1;  // 缓冲区空
+    }
+
+    uint8_t c = _buffer[_tail];
+    _tail = (_tail + 1) % N;
+    return c;
+}
+</code></pre>
+<h2 id="%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86">错误处理</h2>
+<h3 id="%E8%AE%BE%E5%A4%87%E7%8A%B6%E6%80%81%E6%A3%80%E6%9F%A5">设备状态检查</h3>
+
+<pre class="language-cpp"><code class="language-cpp">if (!device_is_ready(master)) {
+    LOG_ERR(&quot;I2C master device %s not ready&quot;, master-&gt;name);
+    return -ENODEV;
+}
+</code></pre>
+<h3 id="%E4%BC%A0%E8%BE%93%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86">传输错误处理</h3>
+
+<pre class="language-cpp"><code class="language-cpp">int ret = i2c_transfer(master, msgs, num_msgs, addr);
+if (ret != 0) {
+    LOG_ERR(&quot;I2C transfer failed: %d&quot;, ret);
+    return ret;
+}
+</code></pre>
+<h3 id="%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA%E4%BF%9D%E6%8A%A4">缓冲区溢出保护</h3>
+
+<pre class="language-cpp"><code class="language-cpp">size_t write(const uint8_t* data, int len) {
+    size_t written = 0;
+    for (int i = 0; i &lt; len &amp;&amp; usedTxBuffer &lt; BUFFER_TX_SIZE; i++) {
+        txBuffer[usedTxBuffer++] = data[i];
+        written++;
+    }
+    return written;
+}
+</code></pre>
+<h2 id="%E8%AE%BE%E5%A4%87%E9%9B%86%E6%88%90">设备集成</h2>
+<h3 id="%E8%AE%BE%E5%A4%87%E6%A0%91%E9%85%8D%E7%BD%AE">设备树配置</h3>
+
+<pre class="language-dts"><code class="language-dts">&amp;i2c0 {
+    status = &quot;okay&quot;;
+    clock-frequency = &lt;I2C_BITRATE_FAST&gt;;
+
+    sensor@48 {
+        compatible = &quot;example,sensor&quot;;
+        reg = &lt;0x48&gt;;
+    };
+};
+</code></pre>
+<h3 id="%E9%A9%B1%E5%8A%A8%E5%AE%9E%E4%BE%8B%E5%8C%96">驱动实例化</h3>
+
+<pre class="language-cpp"><code class="language-cpp">// 获取I2C设备
+const struct device *i2c_dev = DEVICE_DT_GET(DT_NODELABEL(i2c0));
+
+// 创建Wire实例
+MbedI2C wire(i2c_dev);
+
+// 初始化
+wire.begin(I2C_SPEED_FAST);
+</code></pre>
+<h2 id="%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">典型应用场景</h2>
+<h3 id="1.-%E4%BC%A0%E6%84%9F%E5%99%A8%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%8F%96">1. 传感器数据读取</h3>
+
+<pre class="language-cpp"><code class="language-cpp">// 读取传感器寄存器
+uint8_t readSensorRegister(uint8_t addr, uint8_t reg) {
+    wire.aquire();
+
+    wire.beginTransmission(addr);
+    wire.write(reg);
+    wire.endTransmission(false);  // 重复启动
+
+    wire.requestFrom(addr, 1);
+    uint8_t data = wire.read();
+
+    wire.release();
+    return data;
+}
+</code></pre>
+<h3 id="2.-%E4%BC%A0%E6%84%9F%E5%99%A8%E9%85%8D%E7%BD%AE%E5%86%99%E5%85%A5">2. 传感器配置写入</h3>
+
+<pre class="language-cpp"><code class="language-cpp">// 写入传感器寄存器
+void writeSensorRegister(uint8_t addr, uint8_t reg, uint8_t value) {
+    wire.aquire();
+
+    wire.beginTransmission(addr);
+    wire.write(reg);
+    wire.write(value);
+    wire.endTransmission();
+
+    wire.release();
+}
+</code></pre>
+<h3 id="3.-%E6%89%B9%E9%87%8F%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93">3. 批量数据传输</h3>
+
+<pre class="language-cpp"><code class="language-cpp">// 读取多个连续寄存器
+void readMultipleRegisters(uint8_t addr, uint8_t startReg, 
+                          uint8_t* buffer, size_t len) {
+    wire.aquire();
+
+    wire.beginTransmission(addr);
+    wire.write(startReg);
+    wire.endTransmission(false);
+
+    wire.requestFrom(addr, len);
+    for (size_t i = 0; i &lt; len; i++) {
+        buffer[i] = wire.read();
+    }
+
+    wire.release();
+}
+</code></pre>
+<h2 id="%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">性能优化</h2>
+<h3 id="%E6%97%B6%E9%92%9F%E9%85%8D%E7%BD%AE">时钟配置</h3>
+
+<pre class="language-cpp"><code class="language-cpp">void setClock(uint32_t freq) {
+    struct i2c_config config;
+    config.frequency = freq;
+    config.flags = I2C_MODE_MASTER;
+
+    i2c_configure(master, &amp;config);
+}
+</code></pre>
+<h3 id="%E6%94%AF%E6%8C%81%E7%9A%84%E6%97%B6%E9%92%9F%E9%80%9F%E5%BA%A6">支持的时钟速度</h3>
+<ul>
+<li><strong>I2C_SPEED_STANDARD</strong>: 100 kHz</li>
+<li><strong>I2C_SPEED_FAST</strong>: 400 kHz</li>
+<li><strong>I2C_SPEED_FAST_PLUS</strong>: 1 MHz</li>
+</ul>
+<h3 id="%E7%BC%93%E5%86%B2%E5%8C%BA%E4%BC%98%E5%8C%96">缓冲区优化</h3>
+<ul>
+<li>合理的缓冲区大小配置</li>
+<li>避免频繁的小数据传输</li>
+<li>批量操作提高效率</li>
+</ul>
+<h2 id="%E8%B0%83%E8%AF%95%E6%94%AF%E6%8C%81">调试支持</h2>
+<h3 id="%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95">日志记录</h3>
+
+<pre class="language-cpp"><code class="language-cpp">#include &lt;zephyr/logging/log.h&gt;
+LOG_MODULE_REGISTER(wire, CONFIG_WIRE_LOG_LEVEL);
+
+LOG_DBG(&quot;I2C write to 0x%02x: %d bytes&quot;, address, len);
+LOG_ERR(&quot;I2C transfer failed: %d&quot;, ret);
+</code></pre>
+<h3 id="%E7%8A%B6%E6%80%81%E7%9B%91%E6%8E%A7">状态监控</h3>
+<ul>
+<li>传输成功/失败统计</li>
+<li>缓冲区使用情况监控</li>
+<li>设备响应时间测量</li>
+</ul>
+<h2 id="%E6%80%BB%E7%BB%93">总结</h2>
+<p>I2C通信模块提供了完整的I2C通信支持，具有以下特点：</p>
+<ol>
+<li><strong>兼容性</strong>: Arduino Wire库兼容接口</li>
+<li><strong>可靠性</strong>: 完整的错误处理和状态检查</li>
+<li><strong>高效性</strong>: 优化的缓冲区管理和批量传输</li>
+<li><strong>线程安全</strong>: 互斥锁保护的并发访问</li>
+<li><strong>灵活性</strong>: 支持多种时钟速度和传输模式</li>
+</ol>
+<p>该模块为OpenEarable设备的传感器和外设通信提供了稳定可靠的I2C通信基础设施。</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/lhfdoc.github.io/embedded_dev/openearable/parseinfo-module.html">
+                            <span class="icon"></span>
+                            <span class="label">📊 数据解析模块</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/lhfdoc.github.io/embedded_dev/openearable/utils-module.html">
+                            <span class="label">🛠️ 系统工具模块</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关资源</a><ul><li><a target="_blank" href="https://www.nordicsemi.com/">Nordic官网</a></li>
+<li><a target="_blank" href="https://zephyrproject.org/">Zephyr项目</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/lhfdoc.github.io/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/search/search_main.js"></script>
+    
+        <script src="/lhfdoc.github.io/static/js/custom.js"></script>
+    
+</body>
+
+</html>
