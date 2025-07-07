@@ -1,6 +1,18 @@
 items:
-  - label: 模块索引
+  - label: 项目入门
     file: README.md
+    translate: false
+  - label: 📋 项目概述
+    file: project-overview.md
+    translate: false
+  - label: 🏗️ 系统架构
+    file: architecture.md
+    translate: false
+  - label: 🚀 部署指南
+    file: deployment.md
+    translate: false
+  - label: 📖 teedoc使用指南
+    file: teedoc-guide.md
     translate: false
   - label: 核心功能模块
     items:
