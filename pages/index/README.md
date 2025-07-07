@@ -73,7 +73,7 @@ id: home_page
 <div class="featured-item">
 <h4>OpenEarable 2.0 项目分析</h4>
 <p>开源智能耳戴设备的完整技术分析</p>
-<a href="./openearable/">阅读详情</a>
+<a href="./embedded_dev/openearable/">阅读详情</a>
 </div>
 
 <div class="featured-item">
