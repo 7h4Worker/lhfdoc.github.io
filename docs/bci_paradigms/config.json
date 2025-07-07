@@ -1,9 +1,12 @@
 {
+    "locale": "zh_CN",
+    "name": "脑机接口范式",
     "navbar": {
         "title": "脑机接口范式",
         "logo": {
             "alt": "脑机接口范式",
             "url": ""
-        }
+        },
+        "items": []
     }
 }

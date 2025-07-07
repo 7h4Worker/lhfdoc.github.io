@@ -1,10 +1,13 @@
 {
+    "locale": "zh_CN",
+    "name": "嵌入式开发",
     "navbar": {
         "title": "嵌入式开发",
         "logo": {
             "alt": "嵌入式开发",
             "url": ""
-        }
+        },
+        "items": []
     },
     "footer": {
         "top": [

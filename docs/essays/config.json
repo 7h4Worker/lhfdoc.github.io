@@ -1,9 +1,12 @@
 {
+    "locale": "zh_CN",
+    "name": "随笔",
     "navbar": {
         "title": "随笔",
         "logo": {
             "alt": "随笔",
             "url": ""
-        }
+        },
+        "items": []
     }
 }

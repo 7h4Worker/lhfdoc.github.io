@@ -1,9 +1,12 @@
 {
+    "locale": "zh_CN",
+    "name": "边缘AI",
     "navbar": {
         "title": "边缘AI",
         "logo": {
             "alt": "边缘AI",
             "url": ""
-        }
+        },
+        "items": []
     }
 }

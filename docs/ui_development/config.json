@@ -1,9 +1,12 @@
 {
+    "locale": "zh_CN",
+    "name": "UI设计与开发",
     "navbar": {
         "title": "UI设计与开发",
         "logo": {
             "alt": "UI设计与开发",
             "url": ""
-        }
+        },
+        "items": []
     }
 }

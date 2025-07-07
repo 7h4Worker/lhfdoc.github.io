@@ -1,9 +1,12 @@
 {
+    "locale": "zh_CN",
+    "name": "脑机接口算法",
     "navbar": {
         "title": "脑机接口算法",
         "logo": {
             "alt": "脑机接口算法",
             "url": ""
-        }
+        },
+        "items": []
     }
 }
